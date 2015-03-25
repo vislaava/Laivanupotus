@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package upotus.laivanupotus;
+package upotus.laivanupotus.pelaajatiedot;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -25,6 +25,10 @@ public class Nimivarasto {
     
     public void LuoKayttaja(String nimi) {
         nimilista.put(nimi, new Voitot());
+    }
+    
+    public HashMap getLista() {
+        return nimilista;
     }
     
     public String tulostaKayttajatiedot(String nimi) {

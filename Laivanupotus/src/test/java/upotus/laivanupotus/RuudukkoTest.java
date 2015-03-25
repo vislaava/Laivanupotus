@@ -13,6 +13,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Rule;
 import org.junit.rules.ExpectedException;
+import upotus.laivanupotus.peliruudukko.Ruudukko;
 
 /**
  *
