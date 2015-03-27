@@ -5,6 +5,7 @@
  */
 package upotus.laivanupotus.tilastot;
 
+import java.util.Map;
 import java.util.TreeMap;
 import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
 import upotus.laivanupotus.pelaajatiedot.Voitot;
@@ -15,23 +16,41 @@ import upotus.laivanupotus.pelaajatiedot.Voitot;
 public class Tilastojentekija {
     private Nimivarasto varasto;
     private VoittojenVertailija voittojenVertailija;
+    private SiirtojenVertailija siirtojenVertailija;
     private TreeMap<String,Voitot> jarjestettyVarastoVoitot; 
     
     public Tilastojentekija(Nimivarasto varasto) {
         this.varasto = varasto;
         this.voittojenVertailija = new VoittojenVertailija(varasto.getLista());
-        this.jarjestettyVarastoVoitot = new TreeMap<String,Voitot>(voittojenVertailija);
+        this.siirtojenVertailija = new SiirtojenVertailija(varasto.getLista());
     }
     
-    public String VoittajaLuettelo() {
+    public String VoittajaLuettelo(Map mappi) {
+        this.jarjestettyVarastoVoitot = new TreeMap<String,Voitot>(voittojenVertailija);
+
+        jarjestettyVarastoVoitot.putAll(varasto.getLista());
+        String luettelo = "";
+                
+        for (Map.Entry<String, Voitot> entry : jarjestettyVarastoVoitot.entrySet()) {
+            luettelo = luettelo + entry.getKey() + " " + entry.getValue();
+        }
+        
+        return luettelo;
+    }
+    
+    public String VähitenSiirtojaSuhteessaVoittoihinLuettelo(Map mappi) {
+        this.jarjestettyVarastoVoitot = new TreeMap<String,Voitot>(siirtojenVertailija);
+        
         jarjestettyVarastoVoitot.putAll(varasto.getLista());
         String luettelo = "";
         
-        System.out.println(jarjestettyVarastoVoitot.get("Tupu"));
-        
-        for(String avain : jarjestettyVarastoVoitot.keySet()) {
-            luettelo = luettelo + (avain + " " + Integer.toString(jarjestettyVarastoVoitot.get(avain).getVoitot()) + "\n");
+        for (Map.Entry<String, Voitot> entry : jarjestettyVarastoVoitot.entrySet()) {
+            luettelo = luettelo + entry.getKey() + " " + entry.getValue();
         }
+        
         return luettelo;
     }
+    
+    
+
 }

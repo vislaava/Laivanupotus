@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +18,7 @@ import java.util.logging.Logger;
  * @author Tanja
  */
 public class Nimivarasto {
-    private HashMap <String, Voitot> nimilista;
+    private Map <String, Voitot> nimilista;
 
     public Nimivarasto() {
         this.nimilista = new HashMap < String, Voitot>();
@@ -27,7 +28,7 @@ public class Nimivarasto {
         nimilista.put(nimi, new Voitot());
     }
     
-    public HashMap getLista() {
+    public Map getLista() {
         return nimilista;
     }
     

@@ -15,3 +15,12 @@ Testien tekemistä.
 16:30-18
 
 Dokumentaatiota. Git-velhoilua
+
+# 24.3.2015 n. 18-20.00
+Tilasto-ohjelman tekemistä
+
+# 25.3.2015 n. 14-20.00
+Tilasto-ohjelman tekemistä
+
+# 27.3.2015 n. 12-20.00
+Testien tekemistä, dokumentointia

@@ -128,5 +128,14 @@ public class Ruudukko {
         }
         return ruudut[x - 1][y].onkoLaivaa();
     }
+    
+    public boolean AmmuLaiva(int x, int y) {
+        if (onkoAlla(x, y) == true) {
+            ruudut[x][y].setAmmu(true);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

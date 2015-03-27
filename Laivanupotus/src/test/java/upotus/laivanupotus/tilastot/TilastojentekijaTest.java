@@ -5,6 +5,8 @@
  */
 package upotus.laivanupotus.tilastot;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -54,10 +56,98 @@ public class TilastojentekijaTest {
      * Test of VoittajaLuettelo method, of class Tilastojentekija.
      */
     @Test
-    public void testTuleekoSuurin() {
+    public void testTuleekoVoittajaListaOikeassaJarjestyksessa() {
+        Tilastojentekija tilastot = new Tilastojentekija(varasto);
+        String lista = "";
+        lista = tilastot.VoittajaLuettelo(varasto.getLista());
+        
+
+        assertEquals("Tupu 3 33"
+                + "Hupu 2 17"
+                + "Lupu 1 100", lista);     
+    }
+    
+    @Test
+    public void testTuleekoVoittaja() {
+        varasto.LuoKayttaja("Hannu");
+        varasto.PaivitaKayttajanTietoja("Hannu", 7);
+        varasto.PaivitaKayttajanTietoja("Hannu", 7);
+        varasto.PaivitaKayttajanTietoja("Hannu", 7);
+        varasto.PaivitaKayttajanTietoja("Hannu", 7);
+        
         Tilastojentekija tilastot = new Tilastojentekija(varasto);
         
-        System.out.println(tilastot.VoittajaLuettelo());
+        String lista = tilastot.VoittajaLuettelo(varasto.getLista());
+        
+        assertEquals("Hannu 4 28"
+                + "Tupu 3 33"
+                + "Hupu 2 17"
+                + "Lupu 1 100", lista); 
+    }
+    
+    @Test
+    public void testJosKaksiVoittajaa() {
+        varasto.LuoKayttaja("Hannu");
+        varasto.PaivitaKayttajanTietoja("Hannu", 7);
+        varasto.PaivitaKayttajanTietoja("Hannu", 7);
+        varasto.PaivitaKayttajanTietoja("Hannu", 7);
+        
+        Tilastojentekija tilastot = new Tilastojentekija(varasto);
+        
+        String lista = tilastot.VoittajaLuettelo(varasto.getLista());
+        
+        assertEquals("Hannu 3 21"
+                + "Tupu 3 33"
+                + "Hupu 2 17"
+                + "Lupu 1 100", lista); 
+    }
+    
+    @Test
+    public void testTuleekoSiirtoListaOikeassaJarjestyksessa() {
+        Tilastojentekija tilastot = new Tilastojentekija(varasto);
+        String lista = "";
+        lista = tilastot.VähitenSiirtojaSuhteessaVoittoihinLuettelo(varasto.getLista());
+        
+
+        assertEquals("Hupu 2 17"
+                + "Tupu 3 33"
+                + "Lupu 1 100", lista);
+    }
+    
+    @Test
+    public void testJosKahdellaYhtaVahanSiirtoja() {
+        varasto.LuoKayttaja("Hannu");
+        varasto.PaivitaKayttajanTietoja("Hannu", 7);
+        varasto.PaivitaKayttajanTietoja("Hannu", 5);
+        varasto.PaivitaKayttajanTietoja("Hannu", 5);
+        
+        Tilastojentekija tilastot = new Tilastojentekija(varasto);
+        String lista = "";
+        lista = tilastot.VähitenSiirtojaSuhteessaVoittoihinLuettelo(varasto.getLista());
+        
+        assertEquals("Hannu 3 17"
+                + "Hupu 2 17"
+                + "Tupu 3 33"
+                + "Lupu 1 100", lista);
+    }
+    
+    @Test
+    public void testJosEnemmanSiirtojaMuttaKeskiarvoPienempi() {
+        varasto.LuoKayttaja("Hannu");
+        varasto.PaivitaKayttajanTietoja("Hannu", 7);
+        varasto.PaivitaKayttajanTietoja("Hannu", 5);
+        varasto.PaivitaKayttajanTietoja("Hannu", 5);
+        varasto.PaivitaKayttajanTietoja("Hannu", 5);
+        varasto.PaivitaKayttajanTietoja("Hannu", 5);
+        
+        Tilastojentekija tilastot = new Tilastojentekija(varasto);
+        String lista = "";
+        lista = tilastot.VähitenSiirtojaSuhteessaVoittoihinLuettelo(varasto.getLista());
+        
+        assertEquals("Hannu 5 27"
+                + "Hupu 2 17"
+                + "Tupu 3 33"
+                + "Lupu 1 100", lista);
     }
     
 }
