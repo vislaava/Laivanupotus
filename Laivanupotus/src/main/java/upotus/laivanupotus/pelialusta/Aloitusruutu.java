@@ -5,16 +5,20 @@
  */
 package upotus.laivanupotus.pelialusta;
 
+import upotus.laivanupotus.peliruudukko.Ruudukko;
+
 /**
  *
  * @author Tanja
  */
 public class Aloitusruutu {
-    public void MitaTehdaan() {
-        System.out.println("Tervetuloa pelaamaan laivanupotusta!"
-                + "Jos olet vanha käyttäjä, paina kirjainta v!"
-                + "Jos olet uusi käyttäjä, paina kirjainta u!");
-        
-        
+    private Ruudukko ruudukko = new Ruudukko();
+    private Ruudukontulostaja tulostaja = new Ruudukontulostaja(ruudukko);
+    private Laivojenlaittaja laivat = new Laivojenlaittaja(ruudukko);
+    
+    public Laivojenlaittaja getLaivat() {
+        return laivat;
     }
+
+
 }

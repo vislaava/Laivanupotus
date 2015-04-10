@@ -50,6 +50,14 @@ public class RuudukkoTest {
         assertEquals(true, lehtio.lisaaLaiva(3, 2, 2, true));
     }
     
+    @Test
+    public void testLisaaKaksiLaivaa() {
+        Ruudukko lehtio = new Ruudukko();
+        lehtio.lisaaLaiva(3, 2, 2, true);
+        
+        assertEquals(true, lehtio.lisaaLaiva(7, 7, 2, true));
+    }
+    
     @Rule
     public ExpectedException exception = ExpectedException.none();
     

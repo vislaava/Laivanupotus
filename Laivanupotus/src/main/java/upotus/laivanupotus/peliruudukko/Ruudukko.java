@@ -23,6 +23,10 @@ public class Ruudukko {
             }
         }
     }
+    
+    public Ruutu[][] getRuudut() {
+        return ruudut;
+    }
 
     public void LaitaLaiva(int x, int y, boolean laiva) {
         ruudut[x][y].setLaiva(laiva);

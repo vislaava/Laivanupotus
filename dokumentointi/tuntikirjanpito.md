@@ -24,3 +24,14 @@ Tilasto-ohjelman tekemistä
 
 # 27.3.2015 n. 12-20.00
 Testien tekemistä, dokumentointia
+
+# 2.3.2015 n. 13-15.00
+Katselmointia
+
+# 8.3.2015 n. 19-21.00
+Käyttöliittymän koodaamista
+
+# 10.3.2015 n. 11-13.00 ja 18-20.00
+Käyttöliittymän koodaamista ja testien tekemistä. Koodi on jäänyt tällä
+viikolla aika lailla jälkeen ylihuomisen muuton valmistelun vuoksi,
+mutta ensi viikolla otan kiinni raon.
