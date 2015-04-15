@@ -65,9 +65,10 @@ public class Laivojenlaittaja {
     private boolean KysyVaaka() {
         while (true) {
             System.out.println("Anna suunta. Vaaka = v; pysty = p");
-            if (lukija.nextLine() == "v") {
+            String suunta = lukija.nextLine();
+            if (suunta.equals("v")) {
                 return true;
-            } else if (lukija.nextLine() == "p") {
+            } else if (suunta.equals("p")) {
                 return false;
             } else {
                 System.out.println("Väärä merkki.");
