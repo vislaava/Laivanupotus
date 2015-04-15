@@ -14,7 +14,7 @@ import upotus.laivanupotus.peliruudukko.Ruudukko;
 public class Aloitusruutu {
     private Ruudukko ruudukko = new Ruudukko();
     private Ruudukontulostaja tulostaja = new Ruudukontulostaja(ruudukko);
-    private Laivojenlaittaja laivat = new Laivojenlaittaja(ruudukko);
+    private Laivojenlaittaja laivat = new Laivojenlaittaja(ruudukko, tulostaja);
     
     public Laivojenlaittaja getLaivat() {
         return laivat;

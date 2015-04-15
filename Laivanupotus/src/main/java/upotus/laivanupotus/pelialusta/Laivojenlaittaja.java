@@ -19,9 +19,11 @@ public class Laivojenlaittaja {
     private Laiva laiva;
     Scanner lukija = new Scanner(System.in);
     private Ruudukko ruudukko;
+    private Ruudukontulostaja tulostaja;
 
-    Laivojenlaittaja(Ruudukko ruudukko) {
+    Laivojenlaittaja(Ruudukko ruudukko, Ruudukontulostaja tulostaja) {
         this.ruudukko = ruudukko;
+        this.tulostaja = tulostaja;
         this.laivaluettelo = new ArrayList();
         laivaluettelo.add(new Laiva(5));
         laivaluettelo.add(new Laiva(4));
@@ -43,6 +45,7 @@ public class Laivojenlaittaja {
             y = KysyY();
             vaaka = KysyVaaka();
             ruudukko.lisaaLaiva(x, y, laiva.getPituus(), vaaka);
+            tulostaja.TulostaRuudukko(false);
         }
         return true;
     }
