@@ -67,16 +67,16 @@ public class RuudukontulostajaTest {
         Ruudukontulostaja tulostaja = new Ruudukontulostaja(lehtio);
         
         String malliruudukko = 
-                  "wwwwwwwwww" + "\n"
-                + "wssswwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwsswwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n";
+                  "w w w w w w w w w w" + "\n"
+                + "w s s s w w w w w w" + "\n"
+                + "w w w w w w w w w w" + "\n"
+                + "w w w s s w w w w w" + "\n"
+                + "w w w w w w w w w w" + "\n"
+                + "w w w w w w w w w w" + "\n"
+                + "w w w w w w w w w w" + "\n"
+                + "w w w w w w w w w w" + "\n"
+                + "w w w w w w w w w w" + "\n"
+                + "w w w w w w w w w w" + "\n";
         
         assertEquals(malliruudukko, tulostaja.TulostaRuudukko(Boolean.FALSE));
     }

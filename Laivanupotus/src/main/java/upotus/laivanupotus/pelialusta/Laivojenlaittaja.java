@@ -39,6 +39,7 @@ public class Laivojenlaittaja {
     public boolean SijoitaLaivat() {
         for (Laiva laiva : laivaluettelo) {
             while (true) {
+                System.out.println(tulostaja.TulostaRuudukko(false));
                 System.out.println("Laivan pituus on " + laiva.getPituus());
                 int x = ruudunlukija.KysyX();
                 int y = ruudunlukija.KysyY();
@@ -46,7 +47,7 @@ public class Laivojenlaittaja {
                 if (ruudukko.lisaaLaiva(x, y, laiva.getPituus(), vaaka) == true) {
                     break;
                 }
-                System.out.println(tulostaja.TulostaRuudukko(false));
+                
             }
         }
         return true;

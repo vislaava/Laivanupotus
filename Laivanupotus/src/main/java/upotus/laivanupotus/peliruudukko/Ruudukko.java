@@ -96,11 +96,11 @@ public class Ruudukko {
 
     public boolean mahtuukoLaiva(int x, int y, int pituus, boolean vaaka) {
         if (vaaka == true) {
-            if (x + pituus >= riviMax) {
+            if (x + pituus > riviMax) {
                 return false;
             }
         } else {
-            if (y + pituus >= sarakeMax) {
+            if (y + pituus > sarakeMax) {
                 return false;
             }
         }
@@ -260,6 +260,10 @@ public class Ruudukko {
             }
         }
         return true;
+    }
+
+    public boolean onkoAlla(int x, int y) {
+        return ruudut[x][y].onkoLaivaa();
     }
 
 }

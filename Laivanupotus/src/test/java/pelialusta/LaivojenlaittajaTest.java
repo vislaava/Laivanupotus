@@ -39,11 +39,11 @@ public class LaivojenlaittajaTest {
     public void tearDown() {
     }
 
-    @Test
-    public void testLaivojenlaittaja() {
-        Peliruutu aloitus = new Peliruutu();
-        Laivojenlaittaja laivat = aloitus.getLaivojenlaittaja();
-        
-        assertEquals(true, laivat.SijoitaLaivat());
-    }
+//    @Test
+//    public void testLaivojenlaittaja() {
+//        Peliruutu aloitus = new Peliruutu();
+//        Laivojenlaittaja laivat = aloitus.getLaivojenlaittaja();
+//        
+//        assertEquals(true, laivat.SijoitaLaivat());
+//    }
 }

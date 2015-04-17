@@ -64,7 +64,7 @@ public class RuudukkoTest {
     @Test
     public void testLisaaLaivaKunVaarin() {
         Ruudukko lehtio = new Ruudukko();
-        exception.expect(ArrayIndexOutOfBoundsException.class);
+        //exception.expect(ArrayIndexOutOfBoundsException.class);
         assertEquals(false, lehtio.lisaaLaiva(2, 2, 12, true));
     }
 

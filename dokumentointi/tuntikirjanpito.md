@@ -25,13 +25,23 @@ Tilasto-ohjelman tekemistä
 # 27.3.2015 n. 12-20.00
 Testien tekemistä, dokumentointia
 
-# 2.3.2015 n. 13-15.00
+# 2.4.2015 n. 13-15.00
 Katselmointia
 
-# 8.3.2015 n. 19-21.00
+# 8.4.2015 n. 19-21.00
 Käyttöliittymän koodaamista
 
-# 10.3.2015 n. 11-13.00 ja 18-20.00
+# 10.4.2015 n. 11-13.00 ja 18-20.00
 Käyttöliittymän koodaamista ja testien tekemistä. Koodi on jäänyt tällä
 viikolla aika lailla jälkeen ylihuomisen muuton valmistelun vuoksi,
 mutta ensi viikolla otan kiinni raon.
+
+# 14.4.2015 n. 2h
+Debuggaamista
+
+# 16.4.2015 n. 2h
+Graafisen käyttöliittymän kertaamista
+
+# 17.4.2015 n. 15-21.00
+Debuggaamista, uudelleennimeämistä, koodin järkeistämistä, pelilogiikan edistämistä, javadocsien kirjoittelua, 
+sekvenssikaavion tekemistä. 

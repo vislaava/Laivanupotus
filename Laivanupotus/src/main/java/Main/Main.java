@@ -5,8 +5,11 @@
  */
 package Main;
 
+import KayttoliittymaPackage.Kayttoliittyma;
+import javax.swing.SwingUtilities;
 import upotus.laivanupotus.pelialusta.Peliruutu;
 import upotus.laivanupotus.pelialusta.Laivojenlaittaja;
+import upotus.laivanupotus.pelialusta.Ruutujenhallitsija;
 
 /**
  *
@@ -14,7 +17,12 @@ import upotus.laivanupotus.pelialusta.Laivojenlaittaja;
  */
 public class Main {
     public static void main(String [] args) {
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
+        SwingUtilities.invokeLater(kayttoliittyma);
         
+        Ruutujenhallitsija valtias = new Ruutujenhallitsija();
+        valtias.SijoitetaanLaivat();
+        valtias.PelataanKierros();
         
 
         

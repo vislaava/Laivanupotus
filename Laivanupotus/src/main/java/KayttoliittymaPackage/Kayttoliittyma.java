@@ -5,7 +5,10 @@
  */
 package KayttoliittymaPackage;
 
+import java.awt.Container;
+import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -20,6 +23,18 @@ public class Kayttoliittyma implements Runnable {
 
     @Override
     public void run() {
+        frame = new JFrame("Laivanupotus");
+        frame.setPreferredSize(new Dimension(400, 400));
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
+        luoKomponentit(frame.getContentPane());
+        
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    private void luoKomponentit(Container contentPane) {
+        
     }
     
 }
