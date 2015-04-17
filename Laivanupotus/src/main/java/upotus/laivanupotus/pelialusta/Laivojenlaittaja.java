@@ -17,13 +17,14 @@ import upotus.laivanupotus.peliruudukko.Ruudukko;
 public class Laivojenlaittaja {
     private List<Laiva> laivaluettelo;
     private Laiva laiva;
-    Scanner lukija = new Scanner(System.in);
     private Ruudukko ruudukko;
     private Ruudukontulostaja tulostaja;
+    private Lukija ruudunlukija;
 
-    Laivojenlaittaja(Ruudukko ruudukko, Ruudukontulostaja tulostaja) {
+    Laivojenlaittaja(Ruudukko ruudukko, Ruudukontulostaja tulostaja, Lukija ruudunlukija) {
         this.ruudukko = ruudukko;
         this.tulostaja = tulostaja;
+        this.ruudunlukija = ruudunlukija;
         this.laivaluettelo = new ArrayList();
         laivaluettelo.add(new Laiva(5));
         laivaluettelo.add(new Laiva(4));
@@ -36,44 +37,19 @@ public class Laivojenlaittaja {
     }
     
     public boolean SijoitaLaivat() {
-        int x = 0;
-        int y = 0;
-        boolean vaaka = true;
         for (Laiva laiva : laivaluettelo) {
-            System.out.println("Laivan pituus on " + laiva.getPituus());
-            x = KysyX();
-            y = KysyY();
-            vaaka = KysyVaaka();
-            ruudukko.lisaaLaiva(x, y, laiva.getPituus(), vaaka);
-            tulostaja.TulostaRuudukko(false);
-        }
-        return true;
-    }
-    
-    private int KysyX() {
-        System.out.println("Anna koordinaatti x");
-        int x = lukija.nextInt();
-        return x;
-    }
-    
-    private int KysyY() {
-        System.out.println("Anna koordinaatti y");
-        int y = lukija.nextInt();
-        return y;
-    }
-    
-    private boolean KysyVaaka() {
-        while (true) {
-            System.out.println("Anna suunta. Vaaka = v; pysty = p");
-            String suunta = lukija.nextLine();
-            if (suunta.equals("v")) {
-                return true;
-            } else if (suunta.equals("p")) {
-                return false;
-            } else {
-                System.out.println("Väärä merkki.");
+            while (true) {
+                System.out.println("Laivan pituus on " + laiva.getPituus());
+                int x = ruudunlukija.KysyX();
+                int y = ruudunlukija.KysyY();
+                boolean vaaka = ruudunlukija.KysyVaaka();
+                if (ruudukko.lisaaLaiva(x, y, laiva.getPituus(), vaaka) == true) {
+                    break;
+                }
+                System.out.println(tulostaja.TulostaRuudukko(false));
             }
         }
+        return true;
     }
     
 }

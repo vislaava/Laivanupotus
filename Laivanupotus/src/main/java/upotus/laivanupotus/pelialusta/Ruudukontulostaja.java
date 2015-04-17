@@ -45,6 +45,7 @@ public class Ruudukontulostaja {
                     } else {
                         palautettavaRuudukko = palautettavaRuudukko + "w";
                     }
+                    palautettavaRuudukko = palautettavaRuudukko + " ";
                 }
             }
             palautettavaRuudukko = palautettavaRuudukko + "\n";

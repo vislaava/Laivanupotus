@@ -3,20 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Main;
+package KayttoliittymaPackage;
 
-import upotus.laivanupotus.pelialusta.Peliruutu;
-import upotus.laivanupotus.pelialusta.Laivojenlaittaja;
+import javax.swing.JFrame;
 
 /**
  *
  * @author Tanja
  */
-public class Main {
-    public static void main(String [] args) {
-        
-        
-
-        
+public class Kayttoliittyma implements Runnable {
+    
+    private JFrame frame;
+    
+    public Kayttoliittyma() {
     }
+
+    @Override
+    public void run() {
+    }
+    
 }

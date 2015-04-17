@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import upotus.laivanupotus.pelialusta.Aloitusruutu;
+import upotus.laivanupotus.pelialusta.Peliruutu;
 import upotus.laivanupotus.pelialusta.Laivojenlaittaja;
 
 /**
@@ -41,8 +41,8 @@ public class LaivojenlaittajaTest {
 
     @Test
     public void testLaivojenlaittaja() {
-        Aloitusruutu aloitus = new Aloitusruutu();
-        Laivojenlaittaja laivat = aloitus.getLaivat();
+        Peliruutu aloitus = new Peliruutu();
+        Laivojenlaittaja laivat = aloitus.getLaivojenlaittaja();
         
         assertEquals(true, laivat.SijoitaLaivat());
     }
