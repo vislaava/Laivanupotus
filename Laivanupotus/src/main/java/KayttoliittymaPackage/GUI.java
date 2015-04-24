@@ -19,17 +19,20 @@ import upotus.laivanupotus.peliruudukko.Ruutu;
  *
  * @author Tanja
  */
-public class Kayttoliittyma implements Runnable {
+public class GUI implements Runnable {
     
     private JFrame frame;
     private GridLayout ruudukkoonAsettelija;
     private Peliruutu peliruutu;
     private ArrayList<OmaButton> napit;
+    private Nappienkirjoittaja kirjuri;
+    private Peli peli;
     
-    public Kayttoliittyma(Peliruutu peliruutu) {
+    public GUI(Peliruutu peliruutu) {
         ruudukkoonAsettelija = new GridLayout(10,10);
         this.peliruutu = peliruutu;
         this.napit = new ArrayList<OmaButton>();
+        this.peli = new Peli();
     }
 
     @Override
@@ -51,11 +54,13 @@ public class Kayttoliittyma implements Runnable {
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
                 OmaButton nappi = new OmaButton(ruudut[x][y], x, y);
-                nappi.addActionListener(new Kuuntelija());
+                nappi.addActionListener(new Kuuntelija(peli));
                 container.add(nappi);
                 napit.add(nappi);
             }
         }
+        
+        this.kirjuri = new Nappienkirjoittaja(napit);
     }
     
 }

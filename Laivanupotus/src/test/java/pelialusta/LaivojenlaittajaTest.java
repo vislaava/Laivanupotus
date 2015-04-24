@@ -12,7 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import upotus.laivanupotus.pelialusta.Peliruutu;
-import upotus.laivanupotus.pelialusta.Laivojenlaittaja;
+import upotus.laivanupotus.pelialusta.Laivavarasto;
 
 /**
  *

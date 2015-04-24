@@ -6,11 +6,11 @@
 package KayttoliittymaPackage;
 
 /**
- *
+ * Luokka tulee tulostamaan GUIssa tekstikentässä ohjeita ja palautetta pelaajalle
  * @author Tanja
  */
-public class Tekstintulostaja {
-    public Tekstintulostaja() {
+public class Ohjeidentulostaja {
+    public Ohjeidentulostaja() {
         
     }
     

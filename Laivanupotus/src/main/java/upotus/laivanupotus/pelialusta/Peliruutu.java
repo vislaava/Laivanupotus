@@ -13,22 +13,27 @@ import upotus.laivanupotus.peliruudukko.Ruutu;
  * @author Tanja
  */
 public class Peliruutu {
+    
+    /**
+     * Luokka kuuluu tekstikäyttöliittymään ja alkaa olla melko turha. GUIn kanssa toimii luokka Peli.
+     */
 
-    private Ruudukko ruudukko = new Ruudukko();
+    private Ruudukko ruudukko;
     private Ruudukontulostaja tulostaja = new Ruudukontulostaja(ruudukko);
-    private Laivojenlaittaja laivojenlaittaja;
+    private Laivavarasto laivojenlaittaja;
     private Lukija ruudunlukija = new Lukija();
-    private int kierroslaskuri = 0;
 
-    public Peliruutu() {
-        this.laivojenlaittaja = new Laivojenlaittaja(ruudukko, tulostaja, ruudunlukija);
+
+    public Peliruutu(Ruudukko ruudukko) {
+        this.ruudukko = ruudukko;
+        this.laivojenlaittaja = new Laivavarasto(ruudukko, tulostaja, ruudunlukija);
     }
     
     public Ruudukko getRuudukko() {
         return ruudukko;
     }
 
-    public Laivojenlaittaja getLaivojenlaittaja() {
+    public Laivavarasto getLaivojenlaittaja() {
         return laivojenlaittaja;
     }
 
@@ -54,7 +59,6 @@ public class Peliruutu {
                     } else {
                         System.out.println("Ohi!");
                     }
-                    kierroslaskuri++;
                     return;
                 } else {
                     System.out.println("Ruutua on jo ammuttu.");
@@ -64,5 +68,4 @@ public class Peliruutu {
             
         }
     }
-
 }

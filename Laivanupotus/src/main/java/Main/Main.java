@@ -5,10 +5,10 @@
  */
 package Main;
 
-import KayttoliittymaPackage.Kayttoliittyma;
+import KayttoliittymaPackage.GUI;
 import javax.swing.SwingUtilities;
 import upotus.laivanupotus.pelialusta.Peliruutu;
-import upotus.laivanupotus.pelialusta.Laivojenlaittaja;
+import upotus.laivanupotus.pelialusta.Laivavarasto;
 import upotus.laivanupotus.pelialusta.Ruutujenhallitsija;
 
 /**
@@ -18,10 +18,10 @@ import upotus.laivanupotus.pelialusta.Ruutujenhallitsija;
 public class Main {
     public static void main(String [] args) {
         Ruutujenhallitsija valtias = new Ruutujenhallitsija();
-        Kayttoliittyma kayttoliittymaP1 = new Kayttoliittyma(valtias.getPelaaja1());
+        GUI kayttoliittymaP1 = new GUI(valtias.getPelaaja1());
         SwingUtilities.invokeLater(kayttoliittymaP1);
         
-        Kayttoliittyma kayttoliittymaP2 = new Kayttoliittyma(valtias.getPelaaja2());
+        GUI kayttoliittymaP2 = new GUI(valtias.getPelaaja2());
         SwingUtilities.invokeLater(kayttoliittymaP2);
         
         valtias.SijoitetaanLaivat();

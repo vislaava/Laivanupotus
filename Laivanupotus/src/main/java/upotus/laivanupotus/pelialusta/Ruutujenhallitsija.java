@@ -5,21 +5,29 @@
  */
 package upotus.laivanupotus.pelialusta;
 import upotus.laivanupotus.pelialusta.Peliruutu;
-import upotus.laivanupotus.pelialusta.Laivojenlaittaja;
+import upotus.laivanupotus.pelialusta.Laivavarasto;
+import upotus.laivanupotus.peliruudukko.Ruudukko;
 /**
  *
  * @author Tanja
  */
 public class Ruutujenhallitsija {
-    Peliruutu pelaaja1;
-    Laivojenlaittaja laivat1;
-    Peliruutu pelaaja2;
-    Laivojenlaittaja laivat2;
+    
+    /**
+     * Luokka kuuluu tekstikäyttöliittymään ja alkaa olla melko turha. GUIn kanssa toimii luokka Peli.
+     */
+    
+    private Peliruutu pelaaja1;
+    private Laivavarasto laivat1;
+    private Peliruutu pelaaja2;
+    private Laivavarasto laivat2;
+    private Ruudukko ruudukko;
     
     public Ruutujenhallitsija() {
-        this.pelaaja1 = new Peliruutu();
+        ruudukko = new Ruudukko();
+        this.pelaaja1 = new Peliruutu(ruudukko);
         this.laivat1 = pelaaja1.getLaivojenlaittaja();
-        this.pelaaja2 = new Peliruutu();
+        this.pelaaja2 = new Peliruutu(ruudukko);
         this.laivat2 = pelaaja2.getLaivojenlaittaja();
     }
     

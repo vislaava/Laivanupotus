@@ -45,3 +45,12 @@ Graafisen käyttöliittymän kertaamista
 # 17.4.2015 n. 15-21.00
 Debuggaamista, uudelleennimeämistä, koodin järkeistämistä, pelilogiikan edistämistä, javadocsien kirjoittelua, 
 sekvenssikaavion tekemistä. 
+
+# 20.4.2015 n. 3h
+GUIn kirjoittamista
+
+# 22.4.2015 n. 3h
+GUIn kirjoittamista
+
+# 24.4.2015 12-14 ja 19-22
+GUIn kirjoittamista, dokumentointia. GUI yllättävän haasteellinen ja testaukseen ei ole oikein ehtinyt.

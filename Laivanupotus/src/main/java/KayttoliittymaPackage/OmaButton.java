@@ -19,6 +19,13 @@ public class OmaButton extends JButton {
     private int x;
     private int y;
     
+    /**
+     * OmaButton eroaa JButtonista sen osalta, että se saa luodessa koordinaatiston parametrit
+     * @param ruutu
+     * @param x
+     * @param y 
+     */
+    
     public OmaButton(Ruutu ruutu, int x, int y) {
         this.ruutu = ruutu;
         this.onkoAmmuttu = ruutu.onkoAmmuttu();
