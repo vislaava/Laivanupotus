@@ -18,13 +18,22 @@ public class Peliruutu {
     private Ruudukontulostaja tulostaja = new Ruudukontulostaja(ruudukko);
     private Laivojenlaittaja laivojenlaittaja;
     private Lukija ruudunlukija = new Lukija();
+    private int kierroslaskuri = 0;
 
     public Peliruutu() {
         this.laivojenlaittaja = new Laivojenlaittaja(ruudukko, tulostaja, ruudunlukija);
     }
+    
+    public Ruudukko getRuudukko() {
+        return ruudukko;
+    }
 
     public Laivojenlaittaja getLaivojenlaittaja() {
         return laivojenlaittaja;
+    }
+
+    public String TulostaPeliruudukko(boolean vastustaja) {
+        return tulostaja.TulostaRuudukko(vastustaja);
     }
 
     public Boolean OnkoRuudukossaKaikkiUpotettu() {
@@ -32,14 +41,27 @@ public class Peliruutu {
     }
 
     public void Kierros(Peliruutu vastustaja) {
-        tulostaja.TulostaRuudukko(true);
-        vastustaja.tulostaja.TulostaRuudukko(false);
-        while (true) {
-            if (vastustaja.ruudukko.AmmuLaiva(ruudunlukija.KysyX(), ruudunlukija.KysyY()) == true) {
-                return;
-            } else {
-                System.out.println("Ruutua on jo ammuttu.");
+        if (OnkoRuudukossaKaikkiUpotettu() == false || vastustaja.OnkoRuudukossaKaikkiUpotettu() == false) {
+
+            while (true) {
+                System.out.println(tulostaja.TulostaRuudukko(true));
+                System.out.println(vastustaja.tulostaja.TulostaRuudukko(false));
+                int x = ruudunlukija.KysyX();
+                int y = ruudunlukija.KysyY();
+                if (vastustaja.ruudukko.AmmuLaiva(x, y) == true) {
+                    if (vastustaja.ruudukko.onkoAlla(x, y) == true) {
+                        System.out.println("Osui!");
+                    } else {
+                        System.out.println("Ohi!");
+                    }
+                    kierroslaskuri++;
+                    return;
+                } else {
+                    System.out.println("Ruutua on jo ammuttu.");
+                }
             }
+        } else {
+            
         }
     }
 

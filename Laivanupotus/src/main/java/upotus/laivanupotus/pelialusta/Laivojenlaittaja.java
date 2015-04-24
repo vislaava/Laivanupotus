@@ -5,6 +5,7 @@
  */
 package upotus.laivanupotus.pelialusta;
 
+import KayttoliittymaPackage.Tekstintulostaja;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,11 +21,13 @@ public class Laivojenlaittaja {
     private Ruudukko ruudukko;
     private Ruudukontulostaja tulostaja;
     private Lukija ruudunlukija;
+    private Tekstintulostaja teksti;
 
-    Laivojenlaittaja(Ruudukko ruudukko, Ruudukontulostaja tulostaja, Lukija ruudunlukija) {
+    Laivojenlaittaja(Ruudukko ruudukko, Ruudukontulostaja tulostaja, Lukija ruudunlukija, Tekstintulostaja teksti ) {
         this.ruudukko = ruudukko;
         this.tulostaja = tulostaja;
         this.ruudunlukija = ruudunlukija;
+        this.teksti = teksti;
         this.laivaluettelo = new ArrayList();
         laivaluettelo.add(new Laiva(5));
         laivaluettelo.add(new Laiva(4));
@@ -39,14 +42,16 @@ public class Laivojenlaittaja {
     public boolean SijoitaLaivat() {
         for (Laiva laiva : laivaluettelo) {
             while (true) {
-                System.out.println(tulostaja.TulostaRuudukko(false));
-                System.out.println("Laivan pituus on " + laiva.getPituus());
-                int x = ruudunlukija.KysyX();
-                int y = ruudunlukija.KysyY();
-                boolean vaaka = ruudunlukija.KysyVaaka();
-                if (ruudukko.lisaaLaiva(x, y, laiva.getPituus(), vaaka) == true) {
-                    break;
-                }
+//                System.out.println(tulostaja.TulostaRuudukko(false));
+//                System.out.println("Laivan pituus on " + laiva.getPituus());
+//                int x = ruudunlukija.KysyX();
+//                int y = ruudunlukija.KysyY();
+//                boolean vaaka = ruudunlukija.KysyVaaka();
+//                if (ruudukko.lisaaLaiva(x, y, laiva.getPituus(), vaaka) == true) {
+//                    break;             
+//                }
+                
+                teksti.Tulosta("Laivan pituus on " + laiva.getPituus());
                 
             }
         }

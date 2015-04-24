@@ -11,13 +11,24 @@ import upotus.laivanupotus.pelialusta.Laivojenlaittaja;
  * @author Tanja
  */
 public class Ruutujenhallitsija {
-    Peliruutu pelaaja1 = new Peliruutu();
-    Laivojenlaittaja laivat1 = pelaaja1.getLaivojenlaittaja();
-    Peliruutu pelaaja2 = new Peliruutu();
-    Laivojenlaittaja laivat2 = pelaaja2.getLaivojenlaittaja();
+    Peliruutu pelaaja1;
+    Laivojenlaittaja laivat1;
+    Peliruutu pelaaja2;
+    Laivojenlaittaja laivat2;
     
     public Ruutujenhallitsija() {
-        
+        this.pelaaja1 = new Peliruutu();
+        this.laivat1 = pelaaja1.getLaivojenlaittaja();
+        this.pelaaja2 = new Peliruutu();
+        this.laivat2 = pelaaja2.getLaivojenlaittaja();
+    }
+    
+    public Peliruutu getPelaaja1() {
+        return pelaaja1;
+    }
+    
+    public Peliruutu getPelaaja2() {
+        return pelaaja2;
     }
     
     public void SijoitetaanLaivat() {

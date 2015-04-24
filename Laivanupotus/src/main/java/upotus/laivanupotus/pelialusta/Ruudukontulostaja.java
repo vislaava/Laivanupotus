@@ -35,6 +35,7 @@ public class Ruudukontulostaja {
                             palautettavaRuudukko = palautettavaRuudukko + "o";
                         }
                     }
+                    palautettavaRuudukko = palautettavaRuudukko + " ";
                 } else {
                     if (ruudut[x][y].onkoLaivaa() == true) {
                         if (ruudut[x][y].onkoAmmuttu() == true) {

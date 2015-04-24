@@ -1,0 +1,48 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   Laivanupotus/src/main/java/KayttoliittymaPackage/Kayttoliittyma.java
+#	new file:   Laivanupotus/src/main/java/KayttoliittymaPackage/OmaButton.java
+#	modified:   Laivanupotus/src/main/java/Main/Main.java
+#	new file:   Laivanupotus/src/main/java/upotus/laivanupotus/pelialusta/Lopettaja.java
+#	modified:   Laivanupotus/src/main/java/upotus/laivanupotus/pelialusta/Peliruutu.java
+#	modified:   Laivanupotus/src/main/java/upotus/laivanupotus/pelialusta/Ruudukontulostaja.java
+#	modified:   Laivanupotus/src/main/java/upotus/laivanupotus/pelialusta/Ruutujenhallitsija.java
+#	new file:   wgrfv2oh.odh.txt
+#
+# Changes not staged for commit:
+#	deleted:    dokumentointi/Pit-raportit/201503271931/index.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.pelaajatiedot/Nimivarasto.java.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.pelaajatiedot/Voitot.java.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.pelaajatiedot/index.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.pelialusta/Aloitusruutu.java.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.pelialusta/index.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.peliruudukko/Ruudukko.java.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.peliruudukko/Ruutu.java.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.peliruudukko/index.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.tilastot/SiirtojenVertailija.java.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.tilastot/Tilastojentekija.java.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.tilastot/VoittojenVertailija.java.html
+#	deleted:    dokumentointi/Pit-raportit/201503271931/upotus.laivanupotus.tilastot/index.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/index.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.pelaajatiedot/Nimivarasto.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.pelaajatiedot/Voitot.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.pelaajatiedot/index.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.pelialusta/Aloitusruutu.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.pelialusta/Laiva.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.pelialusta/Laivojenlaittaja.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.pelialusta/Ruudukontulostaja.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.pelialusta/index.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.peliruudukko/Ruudukko.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.peliruudukko/Ruutu.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.peliruudukko/index.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.tilastot/SiirtojenVertailija.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.tilastot/Tilastojentekija.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.tilastot/VoittojenVertailija.java.html
+#	deleted:    dokumentointi/Pit-raportit/201504102002/upotus.laivanupotus.tilastot/index.html
+#
+
