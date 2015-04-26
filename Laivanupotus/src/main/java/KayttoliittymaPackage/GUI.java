@@ -23,14 +23,12 @@ public class GUI implements Runnable {
     
     private JFrame frame;
     private GridLayout ruudukkoonAsettelija;
-    private Peliruutu peliruutu;
     private ArrayList<OmaButton> napit;
     private Nappienkirjoittaja kirjuri;
     private Peli peli;
     
-    public GUI(Peliruutu peliruutu) {
+    public GUI() {
         ruudukkoonAsettelija = new GridLayout(10,10);
-        this.peliruutu = peliruutu;
         this.napit = new ArrayList<OmaButton>();
         this.peli = new Peli();
     }

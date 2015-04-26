@@ -17,15 +17,9 @@ import upotus.laivanupotus.pelialusta.Ruutujenhallitsija;
  */
 public class Main {
     public static void main(String [] args) {
-        Ruutujenhallitsija valtias = new Ruutujenhallitsija();
-        GUI kayttoliittymaP1 = new GUI(valtias.getPelaaja1());
-        SwingUtilities.invokeLater(kayttoliittymaP1);
-        
-        GUI kayttoliittymaP2 = new GUI(valtias.getPelaaja2());
-        SwingUtilities.invokeLater(kayttoliittymaP2);
-        
-        valtias.SijoitetaanLaivat();
-        valtias.PelataanKierros();
+        GUI kayttoliittyma = new GUI();
+        SwingUtilities.invokeLater(kayttoliittyma);
+
         
 
         
