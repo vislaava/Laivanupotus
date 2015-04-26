@@ -8,6 +8,7 @@ package KayttoliittymaPackage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
+import java.util.List;
 import upotus.laivanupotus.pelialusta.Peliruutu;
 
 /**
@@ -19,11 +20,13 @@ public class Kuuntelija implements ActionListener {
     private OmaButton nappi;
     private Peliruutu pelaaja;
     private Peli peli;
+    private Nappienkirjoittaja kirjuri;
     
 
-    public Kuuntelija(Peli peli) {
+    public Kuuntelija(Peli peli, Nappienkirjoittaja kirjuri) {
         this.pelaaja = pelaaja;
         this.peli = peli;
+        this.kirjuri = kirjuri;
     }
 
     /**
@@ -41,7 +44,8 @@ public class Kuuntelija implements ActionListener {
             vaaka = true;
         }
         nappi = (OmaButton)ae.getSource();
-        System.out.println(peli.TapahtumaRuudussa(nappi.getX(), nappi.getY(), vaaka));
+        System.out.println(peli.TapahtumaRuudussa(nappi.getParX(), nappi.getParY(), vaaka));
+        kirjuri.Kirjaintenmuuttaminen(peli.getRuudukko(), peli.getLaivojenlaittaminen());
     }
     
 }

@@ -47,18 +47,22 @@ public class GUI implements Runnable {
 
     private void luoKomponentit(Container container) {
         container.setLayout(ruudukkoonAsettelija);
-        Ruutu[][] ruudut = peliruutu.getRuudukko().getRuudut();
+        Ruutu[][] ruudut = peli.getRuudukko().getRuudut();
         
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
                 OmaButton nappi = new OmaButton(ruudut[x][y], x, y);
-                nappi.addActionListener(new Kuuntelija(peli));
                 container.add(nappi);
                 napit.add(nappi);
             }
         }
         
         this.kirjuri = new Nappienkirjoittaja(napit);
+        
+        for(OmaButton nappi : napit) {
+            nappi.addActionListener(new Kuuntelija(peli, kirjuri));
+        }
+        
     }
     
 }

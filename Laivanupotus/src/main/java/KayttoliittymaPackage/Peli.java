@@ -37,6 +37,14 @@ public class Peli {
         this.ruudukko2 = new Ruudukko();
     }
     
+    public Ruudukko getRuudukko() {
+        return ruudukko1;
+    }
+    
+    public boolean getLaivojenlaittaminen() {
+        return laitetaankoLaivoja;
+    }
+    
     /**
      * LaitetaankoLaivoja
      * 

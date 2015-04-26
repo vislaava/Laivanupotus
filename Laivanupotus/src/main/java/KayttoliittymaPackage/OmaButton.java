@@ -16,22 +16,22 @@ public class OmaButton extends JButton {
     private boolean onkoAmmuttu;
     private boolean onkoLaivaa;
     private Ruutu ruutu;
-    private int x;
-    private int y;
+    private int parx;
+    private int pary;
     
     /**
-     * OmaButton eroaa JButtonista sen osalta, että se saa luodessa koordinaatiston parametrit
+     * OmaButton eroaa JButtonista sen osalta, ettÃ¤ se saa luodessa koordinaatiston parametrit
      * @param ruutu
      * @param x
      * @param y 
      */
     
-    public OmaButton(Ruutu ruutu, int x, int y) {
+    public OmaButton(Ruutu ruutu, int parx, int pary) {
         this.ruutu = ruutu;
         this.onkoAmmuttu = ruutu.onkoAmmuttu();
         this.onkoLaivaa = ruutu.onkoLaivaa();
-        this.x = x;
-        this.y = y;
+        this.parx = parx;
+        this.pary = pary;
     }
     
     public void Paivita() {
@@ -39,11 +39,11 @@ public class OmaButton extends JButton {
         this.onkoLaivaa = ruutu.onkoLaivaa();
     }
     
-    public int getX() {
-        return x;
+    public int getParX() {
+        return parx;
     }
     
-    public int getY() {
-        return y;
+    public int getParY() {
+        return pary;
     }
 }
