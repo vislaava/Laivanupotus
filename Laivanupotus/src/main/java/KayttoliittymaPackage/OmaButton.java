@@ -14,9 +14,6 @@ import upotus.laivanupotus.peliruudukko.Ruutu;
  * @author Tanja
  */
 public class OmaButton extends JButton {
-    private boolean onkoAmmuttu;
-    private boolean onkoLaivaa;
-    private Ruutu ruutu;
     private int parx;
     private int pary;
     
@@ -27,18 +24,10 @@ public class OmaButton extends JButton {
      * @param y 
      */
     
-    public OmaButton(Ruutu ruutu, int parx, int pary) {
-        this.ruutu = ruutu;
-        this.onkoAmmuttu = ruutu.onkoAmmuttu();
-        this.onkoLaivaa = ruutu.onkoLaivaa();
+    public OmaButton(int parx, int pary) {
         this.parx = parx;
         this.pary = pary;
         setMargin(new Insets(0, 0, 0, 0));
-    }
-    
-    public void Paivita() {
-        this.onkoAmmuttu = ruutu.onkoAmmuttu();
-        this.onkoLaivaa = ruutu.onkoLaivaa();
     }
     
     public int getParX() {

@@ -9,6 +9,7 @@ import java.util.List;
 import upotus.laivanupotus.pelialusta.Laiva;
 import upotus.laivanupotus.pelialusta.Laivavarasto;
 import upotus.laivanupotus.peliruudukko.Ruudukko;
+import upotus.laivanupotus.peliruudukko.Ruutu;
 
 /**
  *
@@ -29,20 +30,22 @@ public class Peli {
     private List<Laiva> laivat;
     private boolean laitetaankoLaivoja = true;
     private boolean pelaajan1vuoro = true;
+    private Ruutu[][] ruudut1;
+    private Ruutu[][] ruudut2;
 
     public Peli() {
         this.varasto = new Laivavarasto();
-        laivat = varasto.getLaivat();
+        this.laivat = varasto.getLaivat();
         this.ruudukko1 = new Ruudukko();
         this.ruudukko2 = new Ruudukko();
+        this.ruudut1 = ruudukko1.getRuudut();
+        this.ruudut2 = ruudukko2.getRuudut();
     }
     
     public Ruudukko getRuudukko() {
         if(pelaajan1vuoro == true) {
-            pelaajan1vuoro = false;
             return ruudukko1;
         } else {
-            pelaajan1vuoro = true;
             return ruudukko2;
         }
     }
@@ -57,13 +60,14 @@ public class Peli {
      * Metodi pitää kirjaa siitä onko laivojenlaittotilanne ja pelaajien vuoron vaihtumisesta kesken sen.
      */
 
-    public void LaitetaankoLaivoja() {
+    private void LaitetaankoLaivoja() {
         if (laivojalaitettu == 8) {
             laivojalaitettu = 0;
             if (pelaajan1vuoro) {
                 pelaajan1vuoro = false;
             } else {
                 laitetaankoLaivoja = false;
+                pelaajan1vuoro = true;
             }
         }
     }
@@ -102,7 +106,27 @@ public class Peli {
                 }
             }
         } else {
-            return "Blöö";
+            if (pelaajan1vuoro == true) {
+                if (ruudukko2.AmmuLaiva(x, y) == true) {
+                    if (ruudut2[x][y].onkoLaivaa() == true) {
+                        return "Osui!";
+                    } else {
+                        return "Ohi!";
+                    }
+                } else {
+                    return "Paikkaa on jo ammuttu";
+                }
+            } else {
+                if (ruudukko1.AmmuLaiva(x, y) == true) {
+                    if (ruudut1[x][y].onkoLaivaa() == true) {
+                        return "Osui!";
+                    } else {
+                        return "Ohi!";
+                    }
+                } else {
+                    return "Paikkaa on jo ammuttu";
+                }
+            }
         }
     }
     

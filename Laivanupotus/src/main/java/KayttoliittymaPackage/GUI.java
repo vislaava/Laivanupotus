@@ -23,15 +23,15 @@ public class GUI implements Runnable {
     
     private JFrame frame;
     private GridLayout ruudukkoonAsettelija;
-    private ArrayList<OmaButton> napit1;
+    private ArrayList<OmaButton> napit;
     private ArrayList<OmaButton> napit2;
-    private Nappienkirjoittaja kirjuri1;
+    private Nappienkirjoittaja kirjuri;
     private Nappienkirjoittaja kirjuri2;
     private Peli peli;
     
     public GUI() {
         ruudukkoonAsettelija = new GridLayout(10,10);
-        this.napit1 = new ArrayList<OmaButton>();
+        this.napit = new ArrayList<OmaButton>();
         this.napit2 = new ArrayList<OmaButton>();
         this.peli = new Peli();
     }
@@ -50,36 +50,20 @@ public class GUI implements Runnable {
 
     private void luoKomponentit(Container container) {
         container.setLayout(ruudukkoonAsettelija);
-        Ruutu[][] ruudut1 = peli.getRuudukko().getRuudut();
+        Ruutu[][] ruudut = peli.getRuudukko().getRuudut();
         
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
-                OmaButton nappi = new OmaButton(ruudut1[x][y], x, y);
+                OmaButton nappi = new OmaButton(x, y);
                 container.add(nappi);
-                napit1.add(nappi);
+                napit.add(nappi);
             }
         }
         
-        Ruutu[][] ruudut2= peli.getRuudukko().getRuudut();
-        
-        for (int y = 0; y < 10; y++) {
-            for (int x = 0; x < 10; x++) {
-                OmaButton nappi = new OmaButton(ruudut1[x][y], x, y);
-                container.add(nappi);
-                napit2.add(nappi);
-            }
-        }
-        
-        this.kirjuri1 = new Nappienkirjoittaja(napit1);
-        
-        this.kirjuri2 = new Nappienkirjoittaja(napit2);
-        
-        for(OmaButton nappi : napit1) {
-            nappi.addActionListener(new Kuuntelija(peli, kirjuri1));
-        }
-        
-        for(OmaButton nappi : napit2) {
-            nappi.addActionListener(new Kuuntelija(peli, kirjuri2));
+        this.kirjuri = new Nappienkirjoittaja(napit);
+                
+        for(OmaButton nappi : napit) {
+            nappi.addActionListener(new Kuuntelija(peli, kirjuri));
         }
         
     }
