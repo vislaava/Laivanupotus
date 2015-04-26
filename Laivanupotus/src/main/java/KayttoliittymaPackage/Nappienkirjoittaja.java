@@ -38,8 +38,8 @@ public class Nappienkirjoittaja {
         for (OmaButton nappi : napit) {
             if (pelaajaitse == true) {
 
-                if (ruudut[nappi.getX()][nappi.getY()].onkoLaivaa() == true) {
-                    if (ruudut[nappi.getX()][nappi.getY()].onkoAmmuttu() == true) {
+                if (ruudut[nappi.getParX()][nappi.getParY()].onkoLaivaa() == true) {
+                    if (ruudut[nappi.getParX()][nappi.getParY()].onkoAmmuttu() == true) {
                         nappi.setText("x");
                     } else {
                         nappi.setText("s");
@@ -49,10 +49,10 @@ public class Nappienkirjoittaja {
                 }
                 
             } else {
-                if (ruudut[nappi.getX()][nappi.getY()].onkoAmmuttu() == false) {
+                if (ruudut[nappi.getParX()][nappi.getParY()].onkoAmmuttu() == false) {
                     nappi.setText("w");
                 } else {
-                    if (ruudut[nappi.getX()][nappi.getY()].onkoLaivaa() == true) {
+                    if (ruudut[nappi.getParX()][nappi.getParY()].onkoLaivaa() == true) {
                         nappi.setText("x");
                     } else {
                         nappi.setText("o");

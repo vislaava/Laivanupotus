@@ -5,6 +5,7 @@
  */
 package KayttoliittymaPackage;
 
+import java.awt.Insets;
 import javax.swing.JButton;
 import upotus.laivanupotus.peliruudukko.Ruutu;
 
@@ -32,6 +33,7 @@ public class OmaButton extends JButton {
         this.onkoLaivaa = ruutu.onkoLaivaa();
         this.parx = parx;
         this.pary = pary;
+        setMargin(new Insets(0, 0, 0, 0));
     }
     
     public void Paivita() {
