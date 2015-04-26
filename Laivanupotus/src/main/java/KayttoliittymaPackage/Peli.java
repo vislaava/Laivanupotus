@@ -38,7 +38,13 @@ public class Peli {
     }
     
     public Ruudukko getRuudukko() {
-        return ruudukko1;
+        if(pelaajan1vuoro == true) {
+            pelaajan1vuoro = false;
+            return ruudukko1;
+        } else {
+            pelaajan1vuoro = true;
+            return ruudukko2;
+        }
     }
     
     public boolean getLaivojenlaittaminen() {

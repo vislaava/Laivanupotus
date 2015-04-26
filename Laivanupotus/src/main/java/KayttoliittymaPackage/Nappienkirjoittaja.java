@@ -45,12 +45,12 @@ public class Nappienkirjoittaja {
                         nappi.setText("s");
                     }
                 } else {
-                    nappi.setText("w");
+                    nappi.setText(" ");
                 }
                 
             } else {
                 if (ruudut[nappi.getParX()][nappi.getParY()].onkoAmmuttu() == false) {
-                    nappi.setText("w");
+                    nappi.setText(" ");
                 } else {
                     if (ruudut[nappi.getParX()][nappi.getParY()].onkoLaivaa() == true) {
                         nappi.setText("x");
