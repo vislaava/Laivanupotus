@@ -16,12 +16,11 @@ import upotus.laivanupotus.peliruudukko.Ruutu;
  * @author Tanja
  */
 public class Peli {
-    
-    /**
-     * Luokka luo kummallekin pelaajalle ruudukon ja Kuuntelijan kutsumana toteuttaa kulloisenkin vuoron.
-     * Pitää huolta myös vuoroista.
-     */
 
+    /**
+     * Luokka luo kummallekin pelaajalle ruudukon ja Kuuntelijan kutsumana
+     * toteuttaa kulloisenkin vuoron. Pitää huolta myös vuoroista.
+     */
     private Ruudukko ruudukko1;
     private Ruudukko ruudukko2;
     private int kierroslaskuri = 0;
@@ -41,25 +40,33 @@ public class Peli {
         this.ruudut1 = ruudukko1.getRuudut();
         this.ruudut2 = ruudukko2.getRuudut();
     }
-    
+
     public Ruudukko getRuudukko() {
-        if(pelaajan1vuoro == true) {
-            return ruudukko1;
+        if (laitetaankoLaivoja == true) {
+            if (pelaajan1vuoro == true) {
+                return ruudukko1;
+            } else {
+                return ruudukko2;
+            }
         } else {
-            return ruudukko2;
+            if (pelaajan1vuoro == true) {
+                return ruudukko2;
+            } else {
+                return ruudukko1;
+            }
         }
     }
-    
+
     public boolean getLaivojenlaittaminen() {
         return laitetaankoLaivoja;
     }
-    
+
     /**
      * LaitetaankoLaivoja
-     * 
-     * Metodi pitää kirjaa siitä onko laivojenlaittotilanne ja pelaajien vuoron vaihtumisesta kesken sen.
+     *
+     * Metodi pitää kirjaa siitä onko laivojenlaittotilanne ja pelaajien vuoron
+     * vaihtumisesta kesken sen.
      */
-
     private void LaitetaankoLaivoja() {
         if (laivojalaitettu == 8) {
             laivojalaitettu = 0;
@@ -71,19 +78,19 @@ public class Peli {
             }
         }
     }
-    
+
     /**
      * TapahtumaRuudussa
-     * 
-     * Metodi vastaa Kuuntelijan kutsuun ja toteuttaa napin painallukseen reaktiona 
-     * tapahtuman, joka luokan kirjanpidon perusteella on ajankohtainen
-     * 
+     *
+     * Metodi vastaa Kuuntelijan kutsuun ja toteuttaa napin painallukseen
+     * reaktiona tapahtuman, joka luokan kirjanpidon perusteella on
+     * ajankohtainen
+     *
      * @param x parametrit ruudukon parametreja
      * @param y
      * @param vaaka
      * @return palauttaa sanalliset ohjeet ja palautteen pelaajalle
      */
-
     public String TapahtumaRuudussa(int x, int y, boolean vaaka) {
         // Laitetaan laivat
         if (laitetaankoLaivoja == true) {
@@ -109,8 +116,13 @@ public class Peli {
             if (pelaajan1vuoro == true) {
                 if (ruudukko2.AmmuLaiva(x, y) == true) {
                     if (ruudut2[x][y].onkoLaivaa() == true) {
-                        return "Osui!";
+                        if (ruudukko2.OnkoKaikkiAmmuttu() == false) {
+                            return "Osui!";
+                        } else {
+                            return "Kaikki laivat ammuttu, voitit!";
+                        }
                     } else {
+                        pelaajan1vuoro = false;
                         return "Ohi!";
                     }
                 } else {
@@ -119,8 +131,13 @@ public class Peli {
             } else {
                 if (ruudukko1.AmmuLaiva(x, y) == true) {
                     if (ruudut1[x][y].onkoLaivaa() == true) {
-                        return "Osui!";
+                        if (ruudukko1.OnkoKaikkiAmmuttu() == false) {
+                            return "Osui!";
+                        } else {
+                            return "Kaikki laivat ammuttu, voitit!";
+                        }
                     } else {
+                        pelaajan1vuoro = true;
                         return "Ohi!";
                     }
                 } else {
@@ -129,14 +146,14 @@ public class Peli {
             }
         }
     }
-    
+
     /**
      * Laivojenlaittaminen
-     * 
+     *
      * Metodi antaa vuorossa olevan laivan
+     *
      * @return Laivan joka seuraavaksi sijoitetaan ruudukkoon
      */
-
     public Laiva Laivojenlaittaminen() {
         Laiva laiva = laivat.get(laivojalaitettu);
         return laiva;

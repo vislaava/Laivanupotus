@@ -138,9 +138,9 @@ public class Ruudukko {
             }
             for (int i = 0; i < pituus; i++) {
                 if (onkoPohjoisessa(xv, yv) || onkoEtelassa(xv, yv)) {
-                    xv++;
                     return false;
                 }
+                xv++;
             }
             //laiva pystysuunnassa
         } else {
@@ -149,9 +149,9 @@ public class Ruudukko {
 
             for (int i = 0; i < pituus; i++) {
                 if (onkoLannessa(xp, yp) || onkoIdassa(xp, yp)) {
-                    yp++;
                     return false;
                 }
+                yp++;
             }
             if (onkoPohjoisessa(xp, yp) || onkoEtelassa(xp, (y + pituus - 1))) {
                 return false;
@@ -253,7 +253,7 @@ public class Ruudukko {
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
                 if (ruudut[x][y].onkoLaivaa() == true) {
-                    if (ruudut[x][y].onkoAmmuttu() == true) {
+                    if (ruudut[x][y].onkoAmmuttu() == false) {
                         return false;
                     }
                 }
