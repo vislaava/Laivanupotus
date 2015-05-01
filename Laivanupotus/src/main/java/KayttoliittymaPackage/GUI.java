@@ -5,13 +5,16 @@
  */
 package KayttoliittymaPackage;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 import upotus.laivanupotus.pelialusta.Peliruutu;
 import upotus.laivanupotus.peliruudukko.Ruutu;
@@ -24,6 +27,7 @@ public class GUI implements Runnable {
     
     private JFrame frame;
     private JPanel ruutuPaneeli;
+    private JLabel tekstiPaneeli;
     private GridLayout ruudukkoonAsettelija;
     private ArrayList<OmaButton> napit;
     private ArrayList<OmaButton> napit2;
@@ -43,10 +47,16 @@ public class GUI implements Runnable {
         frame = new JFrame("Laivanupotus");
         frame.setPreferredSize(new Dimension(800, 400));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
         ruutuPaneeli = new JPanel();
         ruutuPaneeli.setPreferredSize(new Dimension(400, 400));
+        tekstiPaneeli = new JLabel();
+        tekstiPaneeli.setPreferredSize(new Dimension(400, 400));
         
         luoRuudukko(ruutuPaneeli);
+        
+        frame.getContentPane().add(ruutuPaneeli, BorderLayout.WEST);
+        frame.getContentPane().add(tekstiPaneeli, BorderLayout.EAST);
         
         frame.pack();
         frame.setVisible(true);
@@ -63,11 +73,9 @@ public class GUI implements Runnable {
                 napit.add(nappi);
             }
         }
-        
-        this.kirjuri = new Nappienkirjoittaja(napit);
-                
+        this.kirjuri = new Nappienkirjoittaja(napit);     
         for(OmaButton nappi : napit) {
-            nappi.addActionListener(new Kuuntelija(peli, kirjuri));
+            nappi.addActionListener(new Kuuntelija(peli, kirjuri, tekstiPaneeli);
         }
     }
     

@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.util.List;
+import javax.swing.JLabel;
 import upotus.laivanupotus.pelialusta.Peliruutu;
 
 /**
@@ -21,12 +22,14 @@ public class Kuuntelija implements ActionListener {
     private Peliruutu pelaaja;
     private Peli peli;
     private Nappienkirjoittaja kirjuri;
+    private JLabel tekstiPaneeli;
     
 
-    public Kuuntelija(Peli peli, Nappienkirjoittaja kirjuri) {
+    public Kuuntelija(Peli peli, Nappienkirjoittaja kirjuri, JLabel tekstiPaneeli) {
         this.pelaaja = pelaaja;
         this.peli = peli;
         this.kirjuri = kirjuri;
+        this.tekstiPaneeli = tekstiPaneeli;
     }
 
     /**
@@ -44,7 +47,7 @@ public class Kuuntelija implements ActionListener {
             vaaka = true;
         }
         nappi = (OmaButton)ae.getSource();
-        System.out.println(peli.TapahtumaRuudussa(nappi.getParX(), nappi.getParY(), vaaka));
+        tekstiPaneeli.setText(peli.TapahtumaRuudussa(nappi.getParX(), nappi.getParY(), vaaka));
         kirjuri.Kirjaintenmuuttaminen(peli.getRuudukko(), peli.getLaivojenlaittaminen());
     }
     
