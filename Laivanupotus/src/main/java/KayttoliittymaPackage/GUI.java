@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import upotus.laivanupotus.pelialusta.Peliruutu;
 import upotus.laivanupotus.peliruudukko.Ruutu;
@@ -22,6 +23,7 @@ import upotus.laivanupotus.peliruudukko.Ruutu;
 public class GUI implements Runnable {
     
     private JFrame frame;
+    private JPanel ruutuPaneeli;
     private GridLayout ruudukkoonAsettelija;
     private ArrayList<OmaButton> napit;
     private ArrayList<OmaButton> napit2;
@@ -39,16 +41,18 @@ public class GUI implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Laivanupotus");
-        frame.setPreferredSize(new Dimension(400, 400));
+        frame.setPreferredSize(new Dimension(800, 400));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        ruutuPaneeli = new JPanel();
+        ruutuPaneeli.setPreferredSize(new Dimension(400, 400));
         
-        luoKomponentit(frame.getContentPane());
+        luoRuudukko(ruutuPaneeli);
         
         frame.pack();
         frame.setVisible(true);
     }
 
-    private void luoKomponentit(Container container) {
+    private void luoRuudukko(Container container) {
         container.setLayout(ruudukkoonAsettelija);
         Ruutu[][] ruudut = peli.getRuudukko().getRuudut();
         
@@ -65,7 +69,6 @@ public class GUI implements Runnable {
         for(OmaButton nappi : napit) {
             nappi.addActionListener(new Kuuntelija(peli, kirjuri));
         }
-        
     }
     
 }
