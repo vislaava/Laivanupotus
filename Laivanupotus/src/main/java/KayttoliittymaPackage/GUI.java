@@ -10,12 +10,14 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
+import javax.swing.event.AncestorListener;
 import upotus.laivanupotus.pelialusta.Peliruutu;
 import upotus.laivanupotus.peliruudukko.Ruutu;
 
@@ -27,7 +29,8 @@ public class GUI implements Runnable {
     
     private JFrame frame1;
     private JLabel aloitusTeksti;
-    private JTextArea kirjoituskentta;
+    private JTextArea kirjoituskentta1;
+    private JTextArea kirjoituskentta2;
     private JButton aloitusnappi;
     private Aloitusruutu aloitusruutu;
     
@@ -52,20 +55,28 @@ public class GUI implements Runnable {
     @Override
     public void run() {
         frame1 = new JFrame("Aloitusruutu");
-        frame1.setPreferredSize(new Dimension(500, 500));
+        frame1.setPreferredSize(new Dimension(500, 600));
         frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame1.setLayout(new BorderLayout());
+        frame1.setLayout(new BoxLayout(frame1.getContentPane(), BoxLayout.Y_AXIS));
         
         aloitusTeksti = new JLabel();
         aloitusTeksti.setPreferredSize(new Dimension(400, 100));
-        kirjoituskentta = new JTextArea();
-        kirjoituskentta.setPreferredSize(new Dimension(400, 100));
+        kirjoituskentta1 = new JTextArea();
+        kirjoituskentta1.setPreferredSize(new Dimension(400, 100));
+        kirjoituskentta2.setPreferredSize(new Dimension(400, 100));
         aloitusnappi = new JButton();
         aloitusnappi.setPreferredSize(new Dimension(200, 100));
         
-        frame1.getContentPane().add(aloitusTeksti, BorderLayout.NORTH);
-        frame1.getContentPane().add(kirjoituskentta, BorderLayout.CENTER);
-        frame1.getContentPane().add(aloitusnappi, BorderLayout.SOUTH);
+        frame1.getContentPane().add(aloitusTeksti);
+        frame1.getContentPane().add(kirjoituskentta1);
+        frame1.getContentPane().add(kirjoituskentta2);
+        frame1.getContentPane().add(aloitusnappi);
+        
+        aloitusruutu = new Aloitusruutu(aloitusTeksti, kirjoituskentta1);
+        aloitusnappi.addAncestorListener((AncestorListener) aloitusruutu);
+        
+        frame1.pack();
+        frame1.setVisible(true);
         
         frame2 = new JFrame("Laivanupotus");
         frame2.setPreferredSize(new Dimension(850, 400));
