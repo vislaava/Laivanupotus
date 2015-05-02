@@ -63,6 +63,7 @@ public class GUI implements Runnable {
         aloitusTeksti.setPreferredSize(new Dimension(400, 100));
         kirjoituskentta1 = new JTextArea();
         kirjoituskentta1.setPreferredSize(new Dimension(400, 100));
+        kirjoituskentta2 = new JTextArea();
         kirjoituskentta2.setPreferredSize(new Dimension(400, 100));
         aloitusnappi = new JButton();
         aloitusnappi.setPreferredSize(new Dimension(200, 100));
@@ -72,8 +73,8 @@ public class GUI implements Runnable {
         frame1.getContentPane().add(kirjoituskentta2);
         frame1.getContentPane().add(aloitusnappi);
         
-        aloitusruutu = new Aloitusruutu(aloitusTeksti, kirjoituskentta1);
-        aloitusnappi.addAncestorListener((AncestorListener) aloitusruutu);
+        aloitusruutu = new Aloitusruutu(aloitusTeksti, kirjoituskentta1, kirjoituskentta2);
+        aloitusnappi.addActionListener(aloitusruutu);
         
         frame1.pack();
         frame1.setVisible(true);

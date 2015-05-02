@@ -17,14 +17,17 @@ import javax.swing.JTextArea;
 public class Aloitusruutu implements ActionListener{
     private JLabel aloitusTeksti;
     private JTextArea kirjoituskentta1;
+    private JTextArea kirjoituskentta2;
 
-    Aloitusruutu(JLabel aloitusTeksti, JTextArea kirjoituskentta1) {
+    Aloitusruutu(JLabel aloitusTeksti, JTextArea kirjoituskentta1, JTextArea kirjoituskentta2) {
         this.aloitusTeksti = aloitusTeksti;
         this.kirjoituskentta1 = kirjoituskentta1;
+        this.kirjoituskentta2 = kirjoituskentta2;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        
     }
     
 }
