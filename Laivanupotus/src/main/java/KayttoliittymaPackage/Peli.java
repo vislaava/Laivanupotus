@@ -33,6 +33,8 @@ public class Peli {
     private Ruutu[][] ruudut1;
     private Ruutu[][] ruudut2;
     private Lopettaja lopettaja;
+    private String pelaaja1;
+    private String pelaaja2;
 
     public Peli() {
         this.varasto = new Laivavarasto();
@@ -58,6 +60,14 @@ public class Peli {
                 return ruudukko1;
             }
         }
+    }
+    
+    public void setPelaaja1Nimi(String nimi1) {
+        pelaaja1 = nimi1;
+    }
+    
+    public void setPelaaja2Nimi (String nimi2) {
+        pelaaja2 = nimi2;
     }
 
     public boolean getLaivojenlaittaminen() {

@@ -16,8 +16,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.event.AncestorListener;
+import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
 import upotus.laivanupotus.pelialusta.Peliruutu;
 import upotus.laivanupotus.peliruudukko.Ruutu;
 
@@ -29,10 +31,11 @@ public class GUI implements Runnable {
     
     private JFrame frame1;
     private JLabel aloitusTeksti;
-    private JTextArea kirjoituskentta1;
-    private JTextArea kirjoituskentta2;
+    private JTextField kirjoituskentta1;
+    private JTextField kirjoituskentta2;
     private JButton aloitusnappi;
     private Aloitusruutu aloitusruutu;
+    private Nimivarasto nimivarasto;
     
     private JFrame frame2;
     private JPanel ruutuPaneeli;
@@ -50,30 +53,31 @@ public class GUI implements Runnable {
         this.napit = new ArrayList<OmaButton>();
         this.napit2 = new ArrayList<OmaButton>();
         this.peli = new Peli();
+        this.nimivarasto = new Nimivarasto();
     }
 
     @Override
     public void run() {
         frame1 = new JFrame("Aloitusruutu");
-        frame1.setPreferredSize(new Dimension(500, 600));
+        frame1.setPreferredSize(new Dimension(500, 300));
         frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame1.setLayout(new BoxLayout(frame1.getContentPane(), BoxLayout.Y_AXIS));
         
         aloitusTeksti = new JLabel();
-        aloitusTeksti.setPreferredSize(new Dimension(400, 100));
-        kirjoituskentta1 = new JTextArea();
-        kirjoituskentta1.setPreferredSize(new Dimension(400, 100));
-        kirjoituskentta2 = new JTextArea();
-        kirjoituskentta2.setPreferredSize(new Dimension(400, 100));
+        aloitusTeksti.setPreferredSize(new Dimension(300, 100));
+        kirjoituskentta1 = new JTextField();
+        kirjoituskentta1.setPreferredSize(new Dimension(300, 50));
+        kirjoituskentta2 = new JTextField();
+        kirjoituskentta2.setPreferredSize(new Dimension(300, 50));
         aloitusnappi = new JButton();
-        aloitusnappi.setPreferredSize(new Dimension(200, 100));
+        aloitusnappi.setPreferredSize(new Dimension(200, 50));
         
         frame1.getContentPane().add(aloitusTeksti);
         frame1.getContentPane().add(kirjoituskentta1);
         frame1.getContentPane().add(kirjoituskentta2);
         frame1.getContentPane().add(aloitusnappi);
         
-        aloitusruutu = new Aloitusruutu(aloitusTeksti, kirjoituskentta1, kirjoituskentta2);
+        aloitusruutu = new Aloitusruutu(aloitusTeksti, kirjoituskentta1, kirjoituskentta2, nimivarasto, peli, frame1, frame2);
         aloitusnappi.addActionListener(aloitusruutu);
         
         frame1.pack();
@@ -99,7 +103,6 @@ public class GUI implements Runnable {
         tekstiPaneeli.add(tekstiLabel, BorderLayout.SOUTH);
         
         frame2.pack();
-        frame2.setVisible(true);
     }
 
     private void luoRuudukko(Container container) {

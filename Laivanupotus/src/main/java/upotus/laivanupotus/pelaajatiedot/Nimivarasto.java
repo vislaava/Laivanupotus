@@ -18,29 +18,34 @@ import java.util.logging.Logger;
  * @author Tanja
  */
 public class Nimivarasto {
-    private Map <String, Voitot> nimilista;
+
+    private Map<String, Voitot> nimilista;
 
     public Nimivarasto() {
-        this.nimilista = new HashMap < String, Voitot>();
+        this.nimilista = new HashMap< String, Voitot>();
     }
-    
+
     public void LuoKayttaja(String nimi) {
-        nimilista.put(nimi, new Voitot());
+        if (nimilista.containsKey(nimi)) {
+
+        } else {
+            nimilista.put(nimi, new Voitot());
+        }
     }
-    
+
     public Map getLista() {
         return nimilista;
     }
-    
+
     public String tulostaKayttajatiedot(String nimi) {
         return nimilista.toString();
     }
-    
+
     public void PaivitaKayttajanTietoja(String nimi, int siirrot) {
         nimilista.get(nimi).LisaaVoitto();
         nimilista.get(nimi).PaivitaSiirrot(siirrot);
     }
-    
+
     public boolean TallennaKayttajatTekstitiedostoon() {
         PrintWriter writer;
         try {
