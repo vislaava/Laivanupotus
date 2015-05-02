@@ -133,7 +133,7 @@ public class Peli {
                         if (ruudukko2.OnkoKaikkiAmmuttu() == false) {
                             return "Osui!";
                         } else {
-                            lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro);
+                            lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro, pelaaja1);
                             return "Kaikki laivat ammuttu, voitit!";
                         }
                     } else {
@@ -149,7 +149,7 @@ public class Peli {
                         if (ruudukko1.OnkoKaikkiAmmuttu() == false) {
                             return "Osui!";
                         } else {
-                            lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro);
+                            lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro, pelaaja2);
                             return "Kaikki laivat ammuttu, voitit!";
                         }
                     } else {

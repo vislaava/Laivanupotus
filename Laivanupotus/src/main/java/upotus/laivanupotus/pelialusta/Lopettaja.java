@@ -16,7 +16,7 @@ public class Lopettaja {
         
     }
     
-    public void Lopeta(int kierrokset, boolean onko1pelaaja) {
+    public void Lopeta(int kierrokset, boolean onko1pelaaja, String nimi) {
         
     }
     

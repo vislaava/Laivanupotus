@@ -20,14 +20,12 @@ import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
 public class Aloitusruutu implements ActionListener{
     private JFrame frame1;
     private JFrame frame2;
-    private JLabel aloitusTeksti;
     private JTextField kirjoituskentta1;
     private JTextField kirjoituskentta2;
     private Nimivarasto nimivarasto;
     private Peli peli;
 
-    Aloitusruutu(JLabel aloitusTeksti, JTextField kirjoituskentta1, JTextField kirjoituskentta2, Nimivarasto nimivarasto, Peli peli, JFrame frame1 ,JFrame frame2) {
-        this.aloitusTeksti = aloitusTeksti;
+    Aloitusruutu(JTextField kirjoituskentta1, JTextField kirjoituskentta2, Nimivarasto nimivarasto, Peli peli, JFrame frame1 ,JFrame frame2) {
         this.kirjoituskentta1 = kirjoituskentta1;
         this.kirjoituskentta2 = kirjoituskentta2;
         this.nimivarasto = nimivarasto;
