@@ -5,19 +5,22 @@
  */
 package upotus.laivanupotus.pelialusta;
 
+import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
+
 /**
  *
  * @author Tanja
  */
 public class Lopettaja {
+    private Nimivarasto nimivarasto;
     
     
-    public Lopettaja() {
-        
+    public Lopettaja(Nimivarasto nimivarasto) {
+        this.nimivarasto = nimivarasto;
     }
     
     public void Lopeta(int kierrokset, boolean onko1pelaaja, String nimi) {
-        
+        nimivarasto.PaivitaKayttajanTietoja(nimi, kierrokset);
     }
     
 }

@@ -6,6 +6,7 @@
 package KayttoliittymaPackage;
 
 import java.util.List;
+import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
 import upotus.laivanupotus.pelialusta.Laiva;
 import upotus.laivanupotus.pelialusta.Laivavarasto;
 import upotus.laivanupotus.pelialusta.Lopettaja;
@@ -35,15 +36,19 @@ public class Peli {
     private Lopettaja lopettaja;
     private String pelaaja1;
     private String pelaaja2;
+    private Nimivarasto nimivarasto;
+    private boolean loppuiko;
 
-    public Peli() {
+    public Peli(Nimivarasto nimivarasto) {
         this.varasto = new Laivavarasto();
         this.laivat = varasto.getLaivat();
         this.ruudukko1 = new Ruudukko();
         this.ruudukko2 = new Ruudukko();
         this.ruudut1 = ruudukko1.getRuudut();
         this.ruudut2 = ruudukko2.getRuudut();
-        this.lopettaja = new Lopettaja();
+        this.nimivarasto = nimivarasto;
+        this.lopettaja = new Lopettaja(nimivarasto);
+        this.loppuiko = false;
     }
 
     public Ruudukko getRuudukko() {
@@ -72,6 +77,9 @@ public class Peli {
 
     public boolean getLaivojenlaittaminen() {
         return laitetaankoLaivoja;
+    }
+    public boolean getLoppuiko() {
+        return loppuiko;
     }
 
     /**
@@ -133,6 +141,7 @@ public class Peli {
                         if (ruudukko2.OnkoKaikkiAmmuttu() == false) {
                             return "Osui!";
                         } else {
+                            loppuiko = true;
                             lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro, pelaaja1);
                             return "Kaikki laivat ammuttu, voitit!";
                         }
@@ -149,6 +158,7 @@ public class Peli {
                         if (ruudukko1.OnkoKaikkiAmmuttu() == false) {
                             return "Osui!";
                         } else {
+                            loppuiko = true;
                             lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro, pelaaja2);
                             return "Kaikki laivat ammuttu, voitit!";
                         }

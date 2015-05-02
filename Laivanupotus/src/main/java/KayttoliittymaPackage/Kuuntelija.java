@@ -39,6 +39,8 @@ public class Kuuntelija implements ActionListener {
     }
 
     /**
+     * actionPerformed
+     * 
      * Metodi kuuntelee hiirenklikkauksen ja saa tietona ruudun koordinaatit ja
      * riippuen klikkauksen kanssa shiftin painamisesta, laivan asennon
      *
@@ -46,7 +48,7 @@ public class Kuuntelija implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (loppu == false) {
+        if (peli.getLoppuiko() == false) {
             boolean vaaka;
             if ((ae.getModifiers() & InputEvent.SHIFT_MASK) != 0) {
                 vaaka = false;
@@ -57,7 +59,7 @@ public class Kuuntelija implements ActionListener {
             tekstiPaneeli.setText(peli.TapahtumaRuudussa(nappi.getParX(), nappi.getParY(), vaaka));
             kirjuri.Kirjaintenmuuttaminen(peli.getRuudukko(), peli.getLaivojenlaittaminen());
         } else {
-
+            return;
         }
     }
 

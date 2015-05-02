@@ -27,7 +27,7 @@ public class Nimivarasto {
 
     public void LuoKayttaja(String nimi) {
         if (nimilista.containsKey(nimi)) {
-
+            return;
         } else {
             nimilista.put(nimi, new Voitot());
         }

@@ -36,8 +36,12 @@ public class Aloitusruutu implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        peli.setPelaaja1Nimi(kirjoituskentta1.getText());
-        peli.setPelaaja2Nimi(kirjoituskentta2.getText());
+        String pelaaja1 = kirjoituskentta1.getText();
+        String pelaaja2 = kirjoituskentta2.getText();
+        peli.setPelaaja1Nimi(pelaaja1);
+        peli.setPelaaja2Nimi(pelaaja2);
+        nimivarasto.LuoKayttaja(pelaaja1);
+        nimivarasto.LuoKayttaja(pelaaja2);
         
         frame2.setVisible(true);
         frame1.setVisible(false);
