@@ -8,6 +8,7 @@ package KayttoliittymaPackage;
 import java.util.List;
 import upotus.laivanupotus.pelialusta.Laiva;
 import upotus.laivanupotus.pelialusta.Laivavarasto;
+import upotus.laivanupotus.pelialusta.Lopettaja;
 import upotus.laivanupotus.peliruudukko.Ruudukko;
 import upotus.laivanupotus.peliruudukko.Ruutu;
 
@@ -31,6 +32,7 @@ public class Peli {
     private boolean pelaajan1vuoro = true;
     private Ruutu[][] ruudut1;
     private Ruutu[][] ruudut2;
+    private Lopettaja lopettaja;
 
     public Peli() {
         this.varasto = new Laivavarasto();
@@ -39,6 +41,7 @@ public class Peli {
         this.ruudukko2 = new Ruudukko();
         this.ruudut1 = ruudukko1.getRuudut();
         this.ruudut2 = ruudukko2.getRuudut();
+        this.lopettaja = new Lopettaja();
     }
 
     public Ruudukko getRuudukko() {
@@ -114,11 +117,13 @@ public class Peli {
             }
         } else {
             if (pelaajan1vuoro == true) {
+                kierroslaskuri++;
                 if (ruudukko2.AmmuLaiva(x, y) == true) {
                     if (ruudut2[x][y].onkoLaivaa() == true) {
                         if (ruudukko2.OnkoKaikkiAmmuttu() == false) {
                             return "Osui!";
                         } else {
+                            lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro);
                             return "Kaikki laivat ammuttu, voitit!";
                         }
                     } else {
@@ -134,6 +139,7 @@ public class Peli {
                         if (ruudukko1.OnkoKaikkiAmmuttu() == false) {
                             return "Osui!";
                         } else {
+                            lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro);
                             return "Kaikki laivat ammuttu, voitit!";
                         }
                     } else {

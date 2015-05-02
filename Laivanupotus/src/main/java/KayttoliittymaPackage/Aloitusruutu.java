@@ -3,21 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package upotus.laivanupotus.pelialusta;
+package KayttoliittymaPackage;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author Tanja
  */
-public class Lopettaja {
-    
-    
-    public Lopettaja() {
-        
-    }
-    
-    public void Lopeta(int kierrokset, boolean onko1pelaaja) {
-        
+public class Aloitusruutu implements ActionListener{
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
     }
     
 }

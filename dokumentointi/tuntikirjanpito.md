@@ -54,3 +54,12 @@ GUIn kirjoittamista
 
 # 24.4.2015 12-14 ja 19-22
 GUIn kirjoittamista, dokumentointia. GUI yllättävän haasteellinen ja testaukseen ei ole oikein ehtinyt.
+
+# 25.4.2015 n. 3h
+GUI:n kirjoittamista
+
+# 26.4.2015 n. 3h
+GUI:n kirjoittamista
+
+# 1.5.2015
+GUI:n kirjoittamista
