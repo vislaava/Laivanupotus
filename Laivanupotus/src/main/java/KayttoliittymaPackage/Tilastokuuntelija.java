@@ -51,11 +51,15 @@ class Tilastokuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         frame3.setVisible(true);
         JButton vertailtava = (JButton) ae.getSource();
+        System.out.println("Bläää");
         if (vertailtava.getText().equals(voitotTilastoNappi.getText())) {
+            System.out.println("Blööö");
             tilastoLabel.setText(tilastot.VoittajaLuettelo());
         } else {
+            System.out.println("Blååå");
             tilastoLabel.setText(tilastot.VahitenSiirtojaSuhteessaVoittoihinLuettelo());
         }
+        
     }
     
 }

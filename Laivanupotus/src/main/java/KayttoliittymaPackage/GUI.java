@@ -44,7 +44,6 @@ public class GUI implements Runnable {
     private JPanel nappiPaneeli;
     private JLabel tekstiLabel;
     private JLabel ohjeLabel;
-    private JButton vuoronappi;
     private JButton voitotTilastoNappi;
     private JButton vuorotTilastoNappi;
     private JButton uusiPeliNappi;
@@ -140,13 +139,11 @@ public class GUI implements Runnable {
         //Peliframen nappipaneeli
         nappiPaneeli = new JPanel();
         nappiPaneeli.setLayout(new BoxLayout(nappiPaneeli, BoxLayout.X_AXIS));
-        vuoronappi = new JButton();
         voitotTilastoNappi = new JButton();
         vuorotTilastoNappi = new JButton();
         uusiPeliNappi = new JButton();
         
         //Peliframen nappien käsittely
-        vuoronappi.setText("Vaihda vuoro");
         voitotTilastoNappi.setText("Voittotilasto");
         vuorotTilastoNappi.setText("Vuorotilasto");
         uusiPeliNappi.setText("Uusi peli");
@@ -157,7 +154,6 @@ public class GUI implements Runnable {
         
         
         //Nappipaneelin nappien lisäys
-        nappiPaneeli.add(vuoronappi);
         nappiPaneeli.add(voitotTilastoNappi);
         nappiPaneeli.add(vuorotTilastoNappi);
         nappiPaneeli.add(uusiPeliNappi);

@@ -58,12 +58,14 @@ public class Tilastojentekija {
         this.jarjestettyVarastoVoitot = new TreeMap<String,Voitot>(voittojenVertailija);
 
         jarjestettyVarastoVoitot.putAll(varasto.getLista());
-        String luettelo = "";
+        String luettelo = "<html>";
                 
         for (Map.Entry<String, Voitot> entry : jarjestettyVarastoVoitot.entrySet()) {
-            luettelo = luettelo + entry.getKey() + " " + entry.getValue();
+            luettelo = luettelo + entry.getKey() + " " + entry.getValue() + "<br>";
         }
         
+        luettelo = luettelo + "</html>";
+                
         return luettelo;
     }
 

@@ -179,7 +179,7 @@ public class Peli {
                 if (ruudukko2.AmmuLaiva(x, y) == true) {
                     if (ruudut2[x][y].onkoLaivaa() == true) {
                         if (ruudukko2.OnkoKaikkiAmmuttu() == false) {
-                            return "Osui!";
+                            return "Pelaaja " + pelaaja1 + " osui!";
                         } else {
                             loppuiko = true;
                             lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro, pelaaja1);
@@ -187,7 +187,7 @@ public class Peli {
                         }
                     } else {
                         pelaajan1vuoro = false;
-                        return "Ohi!";
+                        return "Pelaaja " + pelaaja1 + " ampui ohi!";
                     }
                 } else {
                     return "Paikkaa on jo ammuttu";
@@ -196,7 +196,7 @@ public class Peli {
                 if (ruudukko1.AmmuLaiva(x, y) == true) {
                     if (ruudut1[x][y].onkoLaivaa() == true) {
                         if (ruudukko1.OnkoKaikkiAmmuttu() == false) {
-                            return "Osui!";
+                            return "Pelaaja " + pelaaja2 + " osui!";
                         } else {
                             loppuiko = true;
                             lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro, pelaaja2);
@@ -204,7 +204,7 @@ public class Peli {
                         }
                     } else {
                         pelaajan1vuoro = true;
-                        return "Ohi!";
+                        return "Pelaaja " + pelaaja2 + " ampui ohi!";
                     }
                 } else {
                     return "Paikkaa on jo ammuttu";
