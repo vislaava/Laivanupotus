@@ -38,6 +38,7 @@ public class Peli {
     private String pelaaja2;
     private Nimivarasto nimivarasto;
     private boolean loppuiko;
+    private boolean vaihtuikoVuoro;
 
     public Peli(Nimivarasto nimivarasto) {
         this.varasto = new Laivavarasto();
@@ -49,6 +50,7 @@ public class Peli {
         this.nimivarasto = nimivarasto;
         this.lopettaja = new Lopettaja(nimivarasto);
         this.loppuiko = false;
+        this.vaihtuikoVuoro = false;
     }
 
     /**
@@ -81,6 +83,14 @@ public class Peli {
     public void setPelaaja2Nimi (String nimi2) {
         pelaaja2 = nimi2;
     }
+    
+    public String getPelaajanNimi() {
+        if (pelaajan1vuoro == true) {
+            return pelaaja1;
+        } else {
+            return pelaaja2;
+        }
+    }
 
     public boolean getLaivojenlaittaminen() {
         return laitetaankoLaivoja;
@@ -88,6 +98,12 @@ public class Peli {
     public boolean getLoppuiko() {
         return loppuiko;
     }
+    
+    /**
+     * resetPeli
+     * 
+     * Asettaa kaike tarvittavan alkuasetuksiin
+     */
     
     public void resetPeli() {
         this.varasto = new Laivavarasto();
@@ -103,7 +119,7 @@ public class Peli {
         laitetaankoLaivoja = true;
         pelaajan1vuoro = true;
     }
-
+    
     /**
      * LaitetaankoLaivoja
      *
@@ -136,6 +152,7 @@ public class Peli {
      */
     
     public String TapahtumaRuudussa(int x, int y, boolean vaaka) {
+        vaihtuikoVuoro = false;
         // Laitetaan laivat
         if (laitetaankoLaivoja == true) {
             if (pelaajan1vuoro == true) {

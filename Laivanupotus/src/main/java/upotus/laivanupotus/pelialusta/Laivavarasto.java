@@ -72,9 +72,7 @@ public class Laivavarasto {
                 if (ruudukko.lisaaLaiva(x, y, laiva.getPituus(), vaaka) == true) {
                     break;             
                 }
-                
-                teksti.Tulosta("Laivan pituus on " + laiva.getPituus());
-                
+                                
             }
         }
         return true;

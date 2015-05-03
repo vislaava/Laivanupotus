@@ -29,6 +29,7 @@ public class AloitusruutuKuuntelija implements ActionListener{
     private JTextField kirjoituskentta2;
     private Nimivarasto nimivarasto;
     private Peli peli;
+    private Ohjeidentulostaja ohjetulostaja;
 
     AloitusruutuKuuntelija(JTextField kirjoituskentta1, JTextField kirjoituskentta2, Nimivarasto nimivarasto, Peli peli, JFrame frame1 ,JFrame frame2) {
         this.kirjoituskentta1 = kirjoituskentta1;
@@ -37,6 +38,10 @@ public class AloitusruutuKuuntelija implements ActionListener{
         this.peli = peli;
         this.frame2 = frame2;
         this.frame1 = frame1;
+    }
+    
+    public void tuoOhjetulostaja(Ohjeidentulostaja ohjetulostaja) {
+        this.ohjetulostaja = ohjetulostaja;
     }
     
     /**
@@ -56,6 +61,7 @@ public class AloitusruutuKuuntelija implements ActionListener{
         
         frame2.setVisible(true);
         frame1.setVisible(false);
+        ohjetulostaja.Tulosta();
     }
     
 }

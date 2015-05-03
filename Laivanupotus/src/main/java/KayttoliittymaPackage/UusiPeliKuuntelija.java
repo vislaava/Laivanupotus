@@ -19,18 +19,22 @@ class UusiPeliKuuntelija implements ActionListener {
     private Peli peli;
     private JFrame frame1;
     private JFrame frame2;
+    private Nappienkirjoittaja kirjuri;
 
-    public UusiPeliKuuntelija(JButton uusinappi, Peli peli, JFrame frame1, JFrame frame2) {
+    public UusiPeliKuuntelija(Peli peli, JFrame frame1, JFrame frame2, Nappienkirjoittaja kirjuri) {
         this.peli = peli;
         this.frame1 = frame1;
         this.frame2 = frame2;
+        this.kirjuri = kirjuri;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         peli.resetPeli();
+        kirjuri.Kirjaintenmuuttaminen(peli.getRuudukko(), peli.getLaivojenlaittaminen());
         frame1.setVisible(true);
-        frame2.setVisible(true);
+        frame2.setVisible(false);
+        System.out.println("blaaaaa");
     }
     
 }

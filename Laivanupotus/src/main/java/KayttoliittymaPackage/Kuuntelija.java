@@ -15,8 +15,10 @@ import upotus.laivanupotus.pelialusta.tekstikayttis.Peliruutu;
 
 /**
  * Kuuntelija
- * 
- * Luokka kuuntelee peli-ikkunan nappiruudukkoa, jossa itse laivanupotus-peli tapahtuu
+ *
+ * Luokka kuuntelee peli-ikkunan nappiruudukkoa, jossa itse laivanupotus-peli
+ * tapahtuu
+ *
  * @author Tanja
  */
 public class Kuuntelija implements ActionListener {
@@ -28,29 +30,30 @@ public class Kuuntelija implements ActionListener {
     private Nappienkirjoittaja kirjuri;
     private JLabel tekstiPaneeli;
     private boolean loppu;
+    private Ohjeidentulostaja ohjetulostaja;
 
-    public Kuuntelija(Peli peli, Nappienkirjoittaja kirjuri, JLabel tekstiPaneeli) {
+    public Kuuntelija(Peli peli, Nappienkirjoittaja kirjuri, JLabel tekstiPaneeli, Ohjeidentulostaja ohjetulostaja) {
         this.pelaaja = pelaaja;
         this.peli = peli;
         this.kirjuri = kirjuri;
         this.tekstiPaneeli = tekstiPaneeli;
         this.loppu = false;
+        this.ohjetulostaja = ohjetulostaja;
     }
-    
+
     /**
      * setLoppu
-     * 
-     * Kun joku on voittanut, asettaa boolean-arvon todeksi jolloin ruudukkonappien 
-     * kuuntelija lopettaa kuuntelemisen, eikä peli voi jatkua
+     *
+     * Kun joku on voittanut, asettaa boolean-arvon todeksi jolloin
+     * ruudukkonappien kuuntelija lopettaa kuuntelemisen, eikä peli voi jatkua
      */
-
     public void setLoppu() {
         loppu = true;
     }
 
     /**
      * actionPerformed
-     * 
+     *
      * Metodi kuuntelee hiirenklikkauksen ja saa tietona ruudun koordinaatit ja
      * riippuen klikkauksen kanssa shiftin painamisesta, laivan asennon
      *
@@ -58,6 +61,7 @@ public class Kuuntelija implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
+        ohjetulostaja.Tulosta();
         if (peli.getLoppuiko() == false) {
             boolean vaaka;
             if ((ae.getModifiers() & InputEvent.SHIFT_MASK) != 0) {
@@ -67,10 +71,11 @@ public class Kuuntelija implements ActionListener {
             }
             nappi = (OmaButton) ae.getSource();
             tekstiPaneeli.setText(peli.TapahtumaRuudussa(nappi.getParX(), nappi.getParY(), vaaka));
-            kirjuri.Kirjaintenmuuttaminen(peli.getRuudukko(), peli.getLaivojenlaittaminen());
+            kirjuri.Kirjaintenmuuttaminen(peli.getRuudukko(), peli.getLaivojenlaittaminen());            
         } else {
             return;
         }
+        ohjetulostaja.Tulosta();
     }
 
 }

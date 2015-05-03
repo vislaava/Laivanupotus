@@ -56,6 +56,7 @@ public class GUI implements Runnable {
     private Peli peli;
     private Tilastokuuntelija tilastokuuntelija;
     private UusiPeliKuuntelija uusikuuntelija;
+    private Ohjeidentulostaja ohjetulostaja;
     
     private JFrame frame3;
     private JLabel tilastoLabel;
@@ -133,6 +134,8 @@ public class GUI implements Runnable {
         tekstiLabel.setPreferredSize(new Dimension(300, 200));
         tekstiPaneeli.setLayout(new BorderLayout());
         ohjeLabel = new JLabel();
+        ohjetulostaja = new Ohjeidentulostaja(ohjeLabel, peli);
+        aloitusruutu.tuoOhjetulostaja(ohjetulostaja);
         
         //Peliframen nappipaneeli
         nappiPaneeli = new JPanel();
@@ -150,8 +153,8 @@ public class GUI implements Runnable {
         tilastokuuntelija = new Tilastokuuntelija(voitotTilastoNappi, vuorotTilastoNappi, tilastoLabel, nimivarasto, frame3);
         voitotTilastoNappi.addActionListener(tilastokuuntelija);
         vuorotTilastoNappi.addActionListener(tilastokuuntelija);
-        uusikuuntelija = new UusiPeliKuuntelija(uusiPeliNappi, peli, frame1, frame2);
-        uusiPeliNappi.addActionListener(uusikuuntelija);
+        
+        
         
         //Nappipaneelin nappien lisäys
         nappiPaneeli.add(vuoronappi);
@@ -161,6 +164,8 @@ public class GUI implements Runnable {
 
         //Nappiruudukon tekeminen
         luoRuudukko(ruutuPaneeli);
+        uusikuuntelija = new UusiPeliKuuntelija(peli, frame1, frame2, kirjuri);
+        uusiPeliNappi.addActionListener(uusikuuntelija);
         
         //Peliframen komponenttien lisäys
         frame2.getContentPane().add(ruutuPaneeli, BorderLayout.WEST);
@@ -193,8 +198,8 @@ public class GUI implements Runnable {
                 napit.add(nappi);
             }
         }
-        this.kirjuri = new Nappienkirjoittaja(napit);
-        Kuuntelija korva = new Kuuntelija(peli, kirjuri, tekstiLabel);
+        kirjuri = new Nappienkirjoittaja(napit);
+        Kuuntelija korva = new Kuuntelija(peli, kirjuri, tekstiLabel, ohjetulostaja);
         for (OmaButton nappi : napit) {
             nappi.addActionListener(korva);
         }
