@@ -10,7 +10,9 @@ import java.util.TreeMap;
 import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
 import upotus.laivanupotus.pelaajatiedot.Voitot;
 /**
- *
+ *Tilastojentekija
+ * 
+ * Luokka tuottaa tilastoja voitoista ja niihin käytetyistä vuoroista
  * @author Tanja
  */
 public class Tilastojentekija {
@@ -25,29 +27,47 @@ public class Tilastojentekija {
         this.siirtojenVertailija = new SiirtojenVertailija(varasto.getLista());
     }
     
+    /**
+     * Voittajaluettelo
+     * 
+     * Metodi luo String-esityksen, jossa esitetään eniten voittoja saavuttaneet pelaajat
+     * @return String-esitys eniten voittaneista pelaajista
+     */
+    
     public String VoittajaLuettelo() {
         this.jarjestettyVarastoVoitot = new TreeMap<String,Voitot>(voittojenVertailija);
 
         jarjestettyVarastoVoitot.putAll(varasto.getLista());
-        String luettelo = "";
+        String luettelo = "<html> Eniten voittoja: <br> <br>";
                 
         for (Map.Entry<String, Voitot> entry : jarjestettyVarastoVoitot.entrySet()) {
-            luettelo = luettelo + entry.getKey() + " " + entry.getValue();
+            luettelo = luettelo + entry.getKey() + " " + entry.getValue() + "<br>";
         }
+        
+        luettelo = luettelo + "</html>";
         
         return luettelo;
     }
+    
+    /**
+     * VahitenSiirtojaSuhteessaVoittoihinLuettelo
+     * 
+     * Metodi luo String-esityksen, jossa pelaajat asetetaan järjestykseen sen mukaan, kuka voittaa keskimäärin nopeimmin
+     * @return String-esitys nopeimmista pelaajista
+     */
     
     public String VahitenSiirtojaSuhteessaVoittoihinLuettelo() {
         this.jarjestettyVarastoVoitot = new TreeMap<String,Voitot>(siirtojenVertailija);
         
         jarjestettyVarastoVoitot.putAll(varasto.getLista());
         
-        String luettelo = "";
+        String luettelo = "<html> Vähiten siirtoja per voitot: <br> <br>";
         
         for (Map.Entry<String, Voitot> entry : jarjestettyVarastoVoitot.entrySet()) {
-            luettelo = luettelo + entry.getKey() + " " + entry.getValue();
+            luettelo = luettelo + entry.getKey() + " " + entry.getValue() + "<br>";
         }
+        
+        luettelo = luettelo + "</html>";
         
         return luettelo;
     }

@@ -51,6 +51,6 @@ public class Voitot implements Serializable {
     }
     
     public String toString() {
-        return "Voittoja: " + Integer.toString(voittoja) + "Siirtoja: " + Integer.toString(siirtoja) + "";
+        return " Voittoja: " + Integer.toString(voittoja) + " Siirtoja: " + Integer.toString(siirtoja) + "";
     }
 }
