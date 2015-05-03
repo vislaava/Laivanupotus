@@ -1,0 +1,7 @@
+Ohjelman rakenteen kuvaus:
+
+Ohjelma koostuu kahdesta p‰‰toimijasta, GUIsta ja Peli-luokasta. Ohjelma k‰ynnistyy kun GUI-luokka
+k‰ynnistet‰‰n ja se luo mm. Peli-luokasta olion. Peli-luokka hallinnoi pelilogiikan asioita ja luo kummallekin
+pelaajalle omat ruudukot, sek‰ Pelin lopettajan ja Laivavaraston, joka luo ja hallitsee laivoja. GUI luo myˆs Nimivaraston, joka annetaan 
+konstruktorin parametrina Pelille, sek‰ Tilastojentekijan, joka tallentaa ja j‰rjest‰‰ pelaajien voittotietoja.
+Ruudukko-luokka luo sadasta Ruutu-oliosta koostuvan taulukon, johon laivat asetetaan.

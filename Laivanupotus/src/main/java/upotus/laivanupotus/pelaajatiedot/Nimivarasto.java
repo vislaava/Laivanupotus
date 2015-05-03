@@ -31,7 +31,7 @@ public class Nimivarasto {
     private Map<String, Voitot> nimilista;
 
     public Nimivarasto() {
-        this.nimilista = LueTiedosto();
+        this.nimilista = lueTiedosto();
     }
 
     /**
@@ -42,7 +42,7 @@ public class Nimivarasto {
      *
      * @param nimi
      */
-    public void LuoKayttaja(String nimi) {
+    public void luoKayttaja(String nimi) {
         if (nimilista.containsKey(nimi)) {
             return;
         } else {
@@ -58,7 +58,7 @@ public class Nimivarasto {
      * @return nimilista-map
      */
 
-    private Map LueTiedosto() {
+    private Map lueTiedosto() {
         try {
             FileInputStream fis = new FileInputStream("hashmap.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -66,12 +66,12 @@ public class Nimivarasto {
             ois.close();
             fis.close();
         } catch (IOException ioe) {
-            ioe.printStackTrace();
-            return new HashMap< String, Voitot>();
+            //ioe.printStackTrace();
+            return new HashMap<String, Voitot>();
         } catch (ClassNotFoundException c) {
             System.out.println("Class not found");
             c.printStackTrace();
-            return new HashMap< String, Voitot>();
+            return new HashMap<String, Voitot>();
         }
         return nimilista;
     }
@@ -98,9 +98,9 @@ public class Nimivarasto {
      * @param nimi
      * @param siirrot
      */
-    public void PaivitaKayttajanTietoja(String nimi, int siirrot) {
-        nimilista.get(nimi).LisaaVoitto();
-        nimilista.get(nimi).PaivitaSiirrot(siirrot);
+    public void paivitaKayttajanTietoja(String nimi, int siirrot) {
+        nimilista.get(nimi).lisaaVoitto();
+        nimilista.get(nimi).paivitaSiirrot(siirrot);
     }
     
     /**
@@ -110,7 +110,7 @@ public class Nimivarasto {
      * @return palauttaa truen kun onnistuu
      */
 
-    public boolean TallennaKayttajatTiedostoon() {
+    public boolean tallennaKayttajatTiedostoon() {
         try {
             FileOutputStream kayttajatiedosto = new FileOutputStream("hashmap.ser");
             ObjectOutputStream oos = new ObjectOutputStream(kayttajatiedosto);

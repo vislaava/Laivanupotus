@@ -6,7 +6,9 @@
 package upotus.laivanupotus.pelialusta;
 
 /**
- *
+ * Laiva
+ * 
+ * Luokka säilyttää ja antaa laivan pituuden
  * @author Tanja
  */
 public class Laiva {

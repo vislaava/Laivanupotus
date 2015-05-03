@@ -22,7 +22,7 @@ public class Voitot implements Serializable {
         siirtoja = 0;
     }
     
-    public void LisaaVoitto() {
+    public void lisaaVoitto() {
         voittoja++;
     }
     
@@ -33,7 +33,7 @@ public class Voitot implements Serializable {
      * @param uusiaSiirtoja viimeisimmän voitetun pelin siirrot
      */
     
-    public void PaivitaSiirrot(int uusiaSiirtoja) {
+    public void paivitaSiirrot(int uusiaSiirtoja) {
         siirtoja = siirtoja + uusiaSiirtoja;
     }
     
@@ -41,7 +41,14 @@ public class Voitot implements Serializable {
         return voittoja;
     }
     
-    public double SiirtojaKeskimaarin() {
+    /**
+     * SiirtojaKeskimaarin
+     * 
+     * Metodi palauttaa keskiarvon siirtojen määrästä
+     * @return keskiarvo
+     */
+    
+    public double siirtojaKeskimaarin() {
         if (voittoja == 0) {
             return 0.0;
         } else {

@@ -126,7 +126,7 @@ public class Peli {
      * Metodi pitää kirjaa siitä onko laivojenlaittotilanne ja pelaajien vuoron
      * vaihtumisesta kesken sen.
      */
-    private void LaitetaankoLaivoja() {
+    private void laitetaankoLaivoja() {
         if (laivojalaitettu == 8) {
             laivojalaitettu = 0;
             if (pelaajan1vuoro) {
@@ -151,38 +151,38 @@ public class Peli {
      * @return palauttaa sanalliset ohjeet ja palautteen pelaajalle
      */
     
-    public String TapahtumaRuudussa(int x, int y, boolean vaaka) {
+    public String tapahtumaRuudussa(int x, int y, boolean vaaka) {
         vaihtuikoVuoro = false;
         // Laitetaan laivat
         if (laitetaankoLaivoja == true) {
             if (pelaajan1vuoro == true) {
-                if (ruudukko1.lisaaLaiva(x, y, Laivojenlaittaminen().getPituus(), vaaka) == true) {
+                if (ruudukko1.lisaaLaiva(x, y, laivojenlaittaminen().getPituus(), vaaka) == true) {
                     laivojalaitettu++;
-                    LaitetaankoLaivoja();
+                    laitetaankoLaivoja();
                     return "Laiva sopii siihen.";
                 } else {
                     return "Laiva ei sovi tähän, koita toista paikkaa.";
                 }
             } else {
-                if (ruudukko2.lisaaLaiva(x, y, Laivojenlaittaminen().getPituus(), vaaka) == true) {
+                if (ruudukko2.lisaaLaiva(x, y, laivojenlaittaminen().getPituus(), vaaka) == true) {
                     laivojalaitettu++;
-                    LaitetaankoLaivoja();
+                    laitetaankoLaivoja();
                     return "Laiva sopii siihen.";
                 } else {
-                    LaitetaankoLaivoja();
+                    laitetaankoLaivoja();
                     return "Laiva ei sovi tähän, koita toista paikkaa.";
                 }
             }
         } else {
             if (pelaajan1vuoro == true) {
                 kierroslaskuri++;
-                if (ruudukko2.AmmuLaiva(x, y) == true) {
+                if (ruudukko2.ammuLaiva(x, y) == true) {
                     if (ruudut2[x][y].onkoLaivaa() == true) {
-                        if (ruudukko2.OnkoKaikkiAmmuttu() == false) {
+                        if (ruudukko2.onkoKaikkiAmmuttu() == false) {
                             return "Pelaaja " + pelaaja1 + " osui!";
                         } else {
                             loppuiko = true;
-                            lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro, pelaaja1);
+                            lopettaja.lopeta(kierroslaskuri, pelaajan1vuoro, pelaaja1);
                             return "Kaikki laivat ammuttu, voitit!";
                         }
                     } else {
@@ -193,13 +193,13 @@ public class Peli {
                     return "Paikkaa on jo ammuttu";
                 }
             } else {
-                if (ruudukko1.AmmuLaiva(x, y) == true) {
+                if (ruudukko1.ammuLaiva(x, y) == true) {
                     if (ruudut1[x][y].onkoLaivaa() == true) {
-                        if (ruudukko1.OnkoKaikkiAmmuttu() == false) {
+                        if (ruudukko1.onkoKaikkiAmmuttu() == false) {
                             return "Pelaaja " + pelaaja2 + " osui!";
                         } else {
                             loppuiko = true;
-                            lopettaja.Lopeta(kierroslaskuri, pelaajan1vuoro, pelaaja2);
+                            lopettaja.lopeta(kierroslaskuri, pelaajan1vuoro, pelaaja2);
                             return "Kaikki laivat ammuttu, voitit!";
                         }
                     } else {
@@ -220,7 +220,7 @@ public class Peli {
      *
      * @return Laivan joka seuraavaksi sijoitetaan ruudukkoon
      */
-    public Laiva Laivojenlaittaminen() {
+    public Laiva laivojenlaittaminen() {
         Laiva laiva = laivat.get(laivojalaitettu);
         return laiva;
     }

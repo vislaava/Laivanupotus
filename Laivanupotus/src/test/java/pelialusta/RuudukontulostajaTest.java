@@ -44,18 +44,19 @@ public class RuudukontulostajaTest {
         Ruudukko lehtio = new Ruudukko();
         Ruudukontulostaja tulostaja = new Ruudukontulostaja(lehtio);
         
-        String malliruudukko = "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n"
-                + "wwwwwwwwww" + "\n";
+        String malliruudukko = 
+                  "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n";
         
-        assertEquals(malliruudukko, tulostaja.TulostaRuudukko(Boolean.TRUE));
+        assertEquals(malliruudukko, tulostaja.tulostaRuudukko(Boolean.TRUE));
     }
     
     @Test
@@ -67,17 +68,17 @@ public class RuudukontulostajaTest {
         Ruudukontulostaja tulostaja = new Ruudukontulostaja(lehtio);
         
         String malliruudukko = 
-                  "w w w w w w w w w w" + "\n"
-                + "w s s s w w w w w w" + "\n"
-                + "w w w w w w w w w w" + "\n"
-                + "w w w s s w w w w w" + "\n"
-                + "w w w w w w w w w w" + "\n"
-                + "w w w w w w w w w w" + "\n"
-                + "w w w w w w w w w w" + "\n"
-                + "w w w w w w w w w w" + "\n"
-                + "w w w w w w w w w w" + "\n"
-                + "w w w w w w w w w w" + "\n";
+                  "w w w w w w w w w w " + "\n"
+                + "w s s s w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w s s w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n"
+                + "w w w w w w w w w w " + "\n";
         
-        assertEquals(malliruudukko, tulostaja.TulostaRuudukko(Boolean.FALSE));
+        assertEquals(malliruudukko, tulostaja.tulostaRuudukko(Boolean.FALSE));
     }
 }

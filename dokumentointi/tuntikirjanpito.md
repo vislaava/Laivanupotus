@@ -61,5 +61,10 @@ GUI:n kirjoittamista
 # 26.4.2015 n. 3h
 GUI:n kirjoittamista
 
-# 1.5.2015
+# 1.5.2015 16-20
 GUI:n kirjoittamista
+
+# 2.5.2015 n. 10h
+GUI:ta, javadoccia, dokumentointia, tilastoja
+
+# 3.5.2015 10-15, 16-23.30

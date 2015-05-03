@@ -6,7 +6,7 @@
 package upotus.laivanupotus.pelialusta;
 
 import upotus.laivanupotus.pelialusta.tekstikayttis.Ruudukontulostaja;
-import KayttoliittymaPackage.Ohjeidentulostaja;
+import kayttoliittymaPackage.Ohjeidentulostaja;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -57,18 +57,31 @@ public class Laivavarasto {
         laivaluettelo.add(new Laiva(1));
     }
     
+    /**
+     * getLaivat
+     * 
+     * @return List laivoista
+     */
+    
     public List<Laiva> getLaivat() {
         return laivaluettelo;
     }
     
-    public boolean SijoitaLaivat() {
+    /**
+     * SijoitaLaivat
+     * 
+     * Metodi kertoo mikä laiva laitetaan seuraavaksi ja jos koordinaatit ovat sopivat, laittaa laivan
+     * @return palauttaa truen kun laivat on asetettu
+     */
+    
+    public boolean sijoitaLaivat() {
         for (Laiva laiva : laivaluettelo) {
             while (true) {
-                System.out.println(tulostaja.TulostaRuudukko(false));
+                System.out.println(tulostaja.tulostaRuudukko(false));
                 System.out.println("Laivan pituus on " + laiva.getPituus());
-                int x = ruudunlukija.KysyX();
-                int y = ruudunlukija.KysyY();
-                boolean vaaka = ruudunlukija.KysyVaaka();
+                int x = ruudunlukija.kysyX();
+                int y = ruudunlukija.kysyY();
+                boolean vaaka = ruudunlukija.kysyVaaka();
                 if (ruudukko.lisaaLaiva(x, y, laiva.getPituus(), vaaka) == true) {
                     break;             
                 }

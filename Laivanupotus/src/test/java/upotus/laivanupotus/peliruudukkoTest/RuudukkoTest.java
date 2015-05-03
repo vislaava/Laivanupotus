@@ -76,7 +76,7 @@ public class RuudukkoTest {
     public void testOnkoAllaTilaa() {
         Ruudukko lehtio = new Ruudukko();
         
-        lehtio.LaitaLaiva(1, 1, true);
+        lehtio.laitaLaiva(1, 1, true);
         
         assertEquals(true, lehtio.onkoAlla(1, 1));
     }
@@ -85,7 +85,7 @@ public class RuudukkoTest {
     public void testAntaakoLaittaaLaivanViereen() {
         Ruudukko lehtio = new Ruudukko();
         
-        lehtio.LaitaLaiva(1, 1, true);
+        lehtio.laitaLaiva(1, 1, true);
         
         assertEquals(false, lehtio.lisaaLaiva(2, 1, 2, true));
     }
@@ -94,7 +94,7 @@ public class RuudukkoTest {
     public void testAntaakoLaittaaJosVastaTokanAllaLaiva() {
         Ruudukko lehtio = new Ruudukko();
         
-        lehtio.LaitaLaiva(1, 1, true);
+        lehtio.laitaLaiva(1, 1, true);
         
         assertEquals(false, lehtio.lisaaLaiva(0, 1, 2, true));
     }

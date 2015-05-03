@@ -48,11 +48,11 @@ public class Ruutujenhallitsija {
      * Metodi käskee pelaajia sijoittamaan laivansa ja kutsuu laivoja, jotta ne voidaan sijoittaa.
      */
     
-    public void SijoitetaanLaivat() {
+    public void sijoitetaanLaivat() {
         System.out.println("Pelaaja 1, sijoita laivasi.");
-        laivat1.SijoitaLaivat();
+        laivat1.sijoitaLaivat();
         System.out.println("Pelaaja 2, sijoita laivasi.");
-        laivat2.SijoitaLaivat();
+        laivat2.sijoitaLaivat();
     }
     
     /**
@@ -61,8 +61,8 @@ public class Ruutujenhallitsija {
      * Metodi toteuttaa yhden pelikierroksen, jossa kumpikin pelaaja osallistuu kerran.
      */
     
-    public void PelataanKierros() {
-        pelaaja1.Kierros(pelaaja2);
-        pelaaja2.Kierros(pelaaja1);
+    public void pelataanKierros() {
+        pelaaja1.kierros(pelaaja2);
+        pelaaja2.kierros(pelaaja1);
     }
 }

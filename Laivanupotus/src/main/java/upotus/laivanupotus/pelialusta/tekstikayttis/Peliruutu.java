@@ -51,8 +51,8 @@ public class Peliruutu {
      * @return palauttaa String-esityksen ruudukosta
      */
 
-    public String TulostaPeliruudukko(boolean vastustaja) {
-        return tulostaja.TulostaRuudukko(vastustaja);
+    public String tulostaPeliruudukko(boolean vastustaja) {
+        return tulostaja.tulostaRuudukko(vastustaja);
     }
     
     /**
@@ -62,8 +62,8 @@ public class Peliruutu {
      * @return palauttaa kyllä tai ei vastauksen
      */
 
-    public Boolean OnkoRuudukossaKaikkiUpotettu() {
-        return ruudukko.OnkoKaikkiAmmuttu();
+    public Boolean onkoRuudukossaKaikkiUpotettu() {
+        return ruudukko.onkoKaikkiAmmuttu();
     }
     
     /**
@@ -77,15 +77,15 @@ public class Peliruutu {
      * @param vastustaja vastustajan ruudukko
      */
 
-    public void Kierros(Peliruutu vastustaja) {
-        if (OnkoRuudukossaKaikkiUpotettu() == false || vastustaja.OnkoRuudukossaKaikkiUpotettu() == false) {
+    public void kierros(Peliruutu vastustaja) {
+        if (onkoRuudukossaKaikkiUpotettu() == false || vastustaja.onkoRuudukossaKaikkiUpotettu() == false) {
 
             while (true) {
-                System.out.println(tulostaja.TulostaRuudukko(true));
-                System.out.println(vastustaja.tulostaja.TulostaRuudukko(false));
-                int x = ruudunlukija.KysyX();
-                int y = ruudunlukija.KysyY();
-                if (vastustaja.ruudukko.AmmuLaiva(x, y) == true) {
+                System.out.println(tulostaja.tulostaRuudukko(true));
+                System.out.println(vastustaja.tulostaja.tulostaRuudukko(false));
+                int x = ruudunlukija.kysyX();
+                int y = ruudunlukija.kysyY();
+                if (vastustaja.ruudukko.ammuLaiva(x, y) == true) {
                     if (vastustaja.ruudukko.onkoAlla(x, y) == true) {
                         System.out.println("Osui!");
                     } else {

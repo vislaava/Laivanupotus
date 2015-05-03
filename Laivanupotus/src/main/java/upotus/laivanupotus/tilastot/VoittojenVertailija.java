@@ -11,7 +11,9 @@ import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
 import upotus.laivanupotus.pelaajatiedot.Voitot;
 
 /**
- *
+ * VoittojenVertailija
+ * 
+ * Luokka järjestää pelaajat voittojen määrän mukaan
  * @author Tanja
  */
 class VoittojenVertailija implements Comparator <String> {
@@ -21,6 +23,15 @@ class VoittojenVertailija implements Comparator <String> {
         this.lista = lista;
     }
     
+    /**
+     * Compare
+     * 
+     * Metodi poikkeaa tavallisesta comparesta sen suhteen, että se ei anna arvoksi nollaa
+     * jotta jokainen pelaaja tulee tallennetuksi
+     * @param a
+     * @param b
+     * @return 
+     */
 
     @Override
     public int compare(String a, String b) {

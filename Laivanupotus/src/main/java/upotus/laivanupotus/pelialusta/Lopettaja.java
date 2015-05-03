@@ -8,7 +8,9 @@ package upotus.laivanupotus.pelialusta;
 import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
 
 /**
- *
+ * Lopettaja
+ * 
+ * Luokkaa kutsutaan, kun jonkun pelaajan vuoron päätteeksi vastapelaajalla ei ole enää laivoja
  * @author Tanja
  */
 public class Lopettaja {
@@ -19,10 +21,19 @@ public class Lopettaja {
         this.nimivarasto = nimivarasto;
     }
     
-    public void Lopeta(int kierrokset, boolean onko1pelaaja, String nimi) {
-        nimivarasto.LuoKayttaja(nimi);
-        nimivarasto.PaivitaKayttajanTietoja(nimi, kierrokset);
-        nimivarasto.TallennaKayttajatTiedostoon();
+    /**
+     * Lopeta
+     * 
+     * Metodi tallentaa voittaneen pelaajan tiedostoon
+     * @param vuorot kuinka monta vuoroa tarvittiin voittoon
+     * @param onko1pelaaja kumpi pelaaja kyseessä
+     * @param nimi pelaajan nimi
+     */
+    
+    public void lopeta(int vuorot, boolean onko1pelaaja, String nimi) {
+        nimivarasto.luoKayttaja(nimi);
+        nimivarasto.paivitaKayttajanTietoja(nimi, vuorot);
+        nimivarasto.tallennaKayttajatTiedostoon();
     }
     
 }

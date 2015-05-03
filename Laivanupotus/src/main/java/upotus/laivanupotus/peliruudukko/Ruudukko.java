@@ -6,8 +6,9 @@
 package upotus.laivanupotus.peliruudukko;
 
 /**
- * Luokka hallitsee ruuduista koostuvaa taulukkoa, tarkistaa ruudukon ruutujen tilan ja muuttaa niita.
+ * Ruudukko
  * 
+ * Luokka hallitsee ruuduista koostuvaa taulukkoa, tarkistaa ruudukon ruutujen tilan ja muuttaa niita.
  * @author Tanja
  */
 public class Ruudukko {
@@ -30,6 +31,8 @@ public class Ruudukko {
     }
     
     /**
+     * getRuudut
+     * 
      * Metodi palauttaa taulukon
      * 
      * @return Ruuduista koostuva taulukko.
@@ -40,6 +43,8 @@ public class Ruudukko {
     }
     
     /**
+     * LaitaLaiva
+     * 
      * Metodi muuttaa Ruutu-oliossa ruudun sisältämään laivan
      * 
      * @param x sarake
@@ -47,11 +52,13 @@ public class Ruudukko {
      * @param laiva boolean, joka asettaa laivan trueksi
      */
 
-    public void LaitaLaiva(int x, int y, boolean laiva) {
+    public void laitaLaiva(int x, int y, boolean laiva) {
         ruudut[x][y].setLaiva(laiva);
     }
     
     /**
+     * lisaaLaiva
+     * 
      * Metodi muuttaa ruutu kerrallaan laivan trueksi koordinaattien, pituuden ja suunnan mukaan.
      * Tarkistaa metodien OnkoAllaTilaa ja OnkoReunoillaTilaa että laiva pystytään laittamaan paikalleen.
      * 
@@ -83,8 +90,9 @@ public class Ruudukko {
         System.out.println("Ei mahdu!");
         return false;
     }
-    
     /**
+     * mahtuukoLaiva
+     * 
      * Metodi tarkistaa että laiva ei ylitä taulukon rajoja ja että alla on tilaa.
      * 
      * @param x sarake
@@ -116,8 +124,9 @@ public class Ruudukko {
         }
         return true;
     }
-    
     /**
+     * onkoReunoillaTilaa
+     * 
      * Metodi tarkistaa laivan ympäristön jotta laiva ei päädy rinnakkain toisen laivan kanssa. 
      * 
      * @param x sarake
@@ -159,32 +168,23 @@ public class Ruudukko {
         }
         return true;
     }
-    
     /**
-     * Metodi tarkistaa annetun ruudun ylapuolisen rivin saman sarakkeen ruudun.
+     * onkoPohjoisessa
      * 
-     * @param x sarake
-     * @param y rivi
-     * @return jos laiva on ylimmalla rivilla palauttaa falsen, eli ei ole estetta sijoittamiselle
-     * muuten palauttaa ruutu[][]-taulukon metodin tuloksen, joka palauttaa truen jos on laiva
+     * Metodi tarkistaa annetun ruudun ylapuolisen rivin saman sarakkeen ruudun.
      */
-
     public boolean onkoPohjoisessa(int x, int y) {
         if (y == 0) {
             return false;
         }
         return ruudut[x][y - 1].onkoLaivaa();
     }
-    
-    /**
-     * Metodi tarkistaa annetun ruudun alapuolisen rivin saman sarakkeen ruudun.
-     * 
-     * @param x sarake  
-     * @param y rivi
-     * @return jos laiva on alimmalla rivilla palauttaa falsen, eli ei ole estetta sijoittamiselle
-     * muuten palauttaa ruutu[][]-taulukon metodin tuloksen, joka palauttaa truen jos on laiva
-     */
 
+    /**
+     * onkoEtelassa
+     * 
+     * Metodi tarkistaa annetun ruudun alapuolisen rivin saman sarakkeen ruudun.
+     */
     public boolean onkoEtelassa(int x, int y) {
         if (y == sarakeMax - 1) {
             return false;
@@ -193,12 +193,9 @@ public class Ruudukko {
     }
     
     /**
-     * Metodi tarkistaa annetun ruudun oikeanpuolisen sarakkeen saman rivin ruudun.
+     * onkoIdassa
      * 
-     * @param x sarake
-     * @param y rivi
-     * @return jos laiva on rivin viimeisessä sarakkeessa palauttaa falsen, eli ei ole estetta sijoittamiselle
-     * muuten palauttaa ruutu[][]-taulukon metodin tuloksen, joka palauttaa truen jos on laiva
+     * Metodi tarkistaa annetun ruudun oikeanpuolisen sarakkeen saman rivin ruudun.
      */
 
     public boolean onkoIdassa(int x, int y) {
@@ -209,13 +206,9 @@ public class Ruudukko {
     }
     
     /**
+     * onkoLannessa
+     * 
      * Metodi tarkistaa annetun ruudun vasemmanpuolisen sarakkeen saman rivin ruudun.
-     * 
-     * @param x sarake
-     * @param y rivi
-     * @return jos laiva on rivin ensimmäisessa sarakkeessa palauttaa falsen, eli ei ole estetta sijoittamiselle
-     * muuten palauttaa ruutu[][]-taulukon metodin tuloksen, joka palauttaa truen jos on laiva
-     * 
      */
 
     public boolean onkoLannessa(int x, int y) {
@@ -226,14 +219,13 @@ public class Ruudukko {
     }
     
     /**
-     * Metodi asettaa annetun ruudun ammutuksi mmikali ruutua ei ole ammuttu
+     * AmmuLaiva
      * 
-     * @param x sarake
-     * @param y rivi
+     * Metodi asettaa annetun ruudun ammutuksi mmikali ruutua ei ole ammuttu
      * @return palauttaa truen jos muuttaa ruudun ammutuksi
      */
 
-    public boolean AmmuLaiva(int x, int y) {
+    public boolean ammuLaiva(int x, int y) {
         if (ruudut[x][y].onkoAmmuttu() != true) {
             ruudut[x][y].setAmmu(true);
             return true;
@@ -241,15 +233,15 @@ public class Ruudukko {
             return false;
         }
     }
-    
     /**
-     * Metodi tarkistaa rivi ja sarake kerrallaan etta onko ruudussa laivaa ja jos on onko se ammuttu.
+     * OnkoKaikkiAmmuttu
      * 
+     * Metodi tarkistaa rivi ja sarake kerrallaan etta onko ruudussa laivaa ja jos on onko se ammuttu.
      * @return Jos vastaan ei tule ampumatonta laivallista 
      * ruutua palauttaa truen. jos tulee ampumaton laiva palauttaa falsen
      */
 
-    public boolean OnkoKaikkiAmmuttu() {
+    public boolean onkoKaikkiAmmuttu() {
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
                 if (ruudut[x][y].onkoLaivaa() == true) {
@@ -261,19 +253,13 @@ public class Ruudukko {
         }
         return true;
     }
-    
     /**
      * onkoAlla
      * 
      * Testien apumetodi tarkistaa onko ruudussa laiva
-     * 
-     * @param x
-     * @param y
      * @return palauttaa ruudun boolean-palautuksen
      */
-
     public boolean onkoAlla(int x, int y) {
         return ruudut[x][y].onkoLaivaa();
     }
-
 }

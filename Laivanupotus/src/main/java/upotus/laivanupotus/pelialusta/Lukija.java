@@ -29,7 +29,7 @@ public class Lukija {
      *
      * @return palauttaa int:in joka kertoo missä kohtaa x-janalla ollaan
      */
-    public int KysyX() {
+    public int kysyX() {
         System.out.println("Anna koordinaatti x");
         int x;
         while(true) {
@@ -48,7 +48,7 @@ public class Lukija {
      *
      * @return palauttaa y-intin
      */
-    public int KysyY() {
+    public int kysyY() {
         System.out.println("Anna koordinaatti y");
         int y;
         while (true) {
@@ -69,7 +69,7 @@ public class Lukija {
      *
      * @return
      */
-    public boolean KysyVaaka() {
+    public boolean kysyVaaka() {
         while (true) {
             System.out.println("Anna suunta. Vaaka = v; pysty = p");
             String suunta = lukija.nextLine();

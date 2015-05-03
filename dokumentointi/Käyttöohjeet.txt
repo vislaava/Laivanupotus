@@ -1,0 +1,12 @@
+Käyttöohjeet:
+
+Peli aloitetaan kirjoittamalla aloitusikkunassa kahden pelaajan nimet eri riveille.
+Tämän jälkeen painetaan aloita peli -nappia.
+Pelin käynnistyessä ensimmäinen pelaaja sijoittaa laivansa ja se jälkeen toinen pelaaja.
+Tämän jälkeen peli jatkuu suoraan ampumistilaan, jossa pelaajat vuorotellen yrittävät ampua vastustajan
+laivoja. Jos pelaaja osuu, saa hän aina uuden vuoron.
+Peli loppuu kun ensimmäinen pelaaja saa ammuttua kaikki vastustajan laivat. Samalla peli tallentaa voittaneen
+pelaajan tiedot tilastoihin.
+Peli-ikkunassa uusi peli -napista palataan aloitusruutuun. 
+Voittotilastot-napista saadaan tilasto eniten voittaneista pelaajista
+Vuorotilastot-napista saadaan tilasto vähäisimmillä siirroilla voittaneista pelaajista.

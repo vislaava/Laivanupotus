@@ -1,0 +1,22 @@
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'C:/Users/Tanja/Documents/GitHub/Laivanupotus_Tanjan/Laivanupotus/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2015. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Tanja/Documents/GitHub/Laivanupotus_Tanjan/Laivanupotus/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Tanjan laivanupotus 1.0-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/8/docs/api' 'C:/Users/Tanja/Documents/GitHub/Laivanupotus_Tanjan/Laivanupotus/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Tanjan laivanupotus 1.0-SNAPSHOT API'

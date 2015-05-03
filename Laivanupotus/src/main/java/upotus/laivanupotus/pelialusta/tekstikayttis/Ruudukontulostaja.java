@@ -31,7 +31,7 @@ public class Ruudukontulostaja {
      * @return String-esitys ruudukosta
      */
     
-    public String TulostaRuudukko(Boolean hyokkaaja) {
+    public String tulostaRuudukko(Boolean hyokkaaja) {
         String palautettavaRuudukko = "";
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
