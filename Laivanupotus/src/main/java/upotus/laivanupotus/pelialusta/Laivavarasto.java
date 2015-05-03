@@ -5,6 +5,7 @@
  */
 package upotus.laivanupotus.pelialusta;
 
+import upotus.laivanupotus.pelialusta.tekstikayttis.Ruudukontulostaja;
 import KayttoliittymaPackage.Ohjeidentulostaja;
 import java.util.ArrayList;
 import java.util.List;

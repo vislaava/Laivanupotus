@@ -11,7 +11,10 @@ import upotus.laivanupotus.peliruudukko.Ruudukko;
 import upotus.laivanupotus.peliruudukko.Ruutu;
 
 /**
- *Luokka tulostaa jokaiseen ruudukon nappiin kirjaimen riippuen pelaajasta, eli onko hyökkääjän vai puolustajan ruudukko
+ * Nappienkirjoittaja
+ * 
+ * Luokka tulostaa jokaiseen ruudukon nappiin kirjaimen riippuen pelaajasta, 
+ * eli onko hyökkääjän vai puolustajan ruudukko
  * @author Tanja
  */
 public class Nappienkirjoittaja {

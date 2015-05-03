@@ -3,13 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package upotus.laivanupotus.pelialusta;
+package upotus.laivanupotus.pelialusta.tekstikayttis;
 
+import upotus.laivanupotus.pelialusta.Laivavarasto;
+import upotus.laivanupotus.pelialusta.Lukija;
+import upotus.laivanupotus.pelialusta.tekstikayttis.Ruudukontulostaja;
 import upotus.laivanupotus.peliruudukko.Ruudukko;
 import upotus.laivanupotus.peliruudukko.Ruutu;
 
 /**
- *
+ * Peliruutu
+ * 
+ * Tekstikäyttöliittymäluokka
  * @author Tanja
  */
 public class Peliruutu {
@@ -36,14 +41,41 @@ public class Peliruutu {
     public Laivavarasto getLaivojenlaittaja() {
         return laivojenlaittaja;
     }
+    
+    /**
+     * TulostaPeliruudukko
+     * 
+     * Metodi kutsuu tulostajaa
+     * @param vastustaja boolean-arvo annetaan parametrina kertomaan, tulostetaanko ruudukko mallilla
+     * puolustava, vai hyökkäävä
+     * @return palauttaa String-esityksen ruudukosta
+     */
 
     public String TulostaPeliruudukko(boolean vastustaja) {
         return tulostaja.TulostaRuudukko(vastustaja);
     }
+    
+    /**
+     * OnkoRuudukossaKaikkiUpotettu
+     * 
+     * Metodi tarkistaa onko kaikki ruudukon laivat ammuttu
+     * @return palauttaa kyllä tai ei vastauksen
+     */
 
     public Boolean OnkoRuudukossaKaikkiUpotettu() {
         return ruudukko.OnkoKaikkiAmmuttu();
     }
+    
+    /**
+     * Kierros
+     * 
+     * Metodi hoitaa yhden kierroksen per pelaaja.
+     * Metodi kutsuu tulostajaa tulostamaan oman ja vastustajan ruudukon.
+     * Tämän jälkeen kutsuu Scanner-luokka-oliota lukemaan pelaajan kirjoituksia
+     * Tämän jälkeen tarkistaa osuiko pelaaja ja reagoi sen mukaan. Jos pelaaja ampuu jo ampumaansa paikkaan,
+     * metodi palaa ampumiseen, eikä lopeta ennen kuin tulee osu tai ohi.
+     * @param vastustaja vastustajan ruudukko
+     */
 
     public void Kierros(Peliruutu vastustaja) {
         if (OnkoRuudukossaKaikkiUpotettu() == false || vastustaja.OnkoRuudukossaKaikkiUpotettu() == false) {

@@ -5,15 +5,18 @@
  */
 package KayttoliittymaPackage;
 
+import upotus.laivanupotus.pelialusta.Peli;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.util.List;
 import javax.swing.JLabel;
-import upotus.laivanupotus.pelialusta.Peliruutu;
+import upotus.laivanupotus.pelialusta.tekstikayttis.Peliruutu;
 
 /**
- *
+ * Kuuntelija
+ * 
+ * Luokka kuuntelee peli-ikkunan nappiruudukkoa, jossa itse laivanupotus-peli tapahtuu
  * @author Tanja
  */
 public class Kuuntelija implements ActionListener {
@@ -33,6 +36,13 @@ public class Kuuntelija implements ActionListener {
         this.tekstiPaneeli = tekstiPaneeli;
         this.loppu = false;
     }
+    
+    /**
+     * setLoppu
+     * 
+     * Kun joku on voittanut, asettaa boolean-arvon todeksi jolloin ruudukkonappien 
+     * kuuntelija lopettaa kuuntelemisen, eikä peli voi jatkua
+     */
 
     public void setLoppu() {
         loppu = true;

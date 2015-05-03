@@ -25,7 +25,7 @@ public class Tilastojentekija {
         this.siirtojenVertailija = new SiirtojenVertailija(varasto.getLista());
     }
     
-    public String VoittajaLuettelo(Map mappi) {
+    public String VoittajaLuettelo() {
         this.jarjestettyVarastoVoitot = new TreeMap<String,Voitot>(voittojenVertailija);
 
         jarjestettyVarastoVoitot.putAll(varasto.getLista());
@@ -38,7 +38,36 @@ public class Tilastojentekija {
         return luettelo;
     }
     
-    public String VähitenSiirtojaSuhteessaVoittoihinLuettelo(Map mappi) {
+    public String VahitenSiirtojaSuhteessaVoittoihinLuettelo() {
+        this.jarjestettyVarastoVoitot = new TreeMap<String,Voitot>(siirtojenVertailija);
+        
+        jarjestettyVarastoVoitot.putAll(varasto.getLista());
+        
+        String luettelo = "";
+        
+        for (Map.Entry<String, Voitot> entry : jarjestettyVarastoVoitot.entrySet()) {
+            luettelo = luettelo + entry.getKey() + " " + entry.getValue();
+        }
+        
+        return luettelo;
+    }
+    
+    //testiluokkia varten metodit, joihin pelaajaporukat heitetään valmiiksi
+    
+    public String VoittajaLuettelo(Map mappi) {
+        this.jarjestettyVarastoVoitot = new TreeMap<String,Voitot>(voittojenVertailija);
+
+        jarjestettyVarastoVoitot.putAll(varasto.getLista());
+        String luettelo = "";
+                
+        for (Map.Entry<String, Voitot> entry : jarjestettyVarastoVoitot.entrySet()) {
+            luettelo = luettelo + entry.getKey() + " " + entry.getValue();
+        }
+        
+        return luettelo;
+    }
+
+    String VähitenSiirtojaSuhteessaVoittoihinLuettelo(Map lista) {
         this.jarjestettyVarastoVoitot = new TreeMap<String,Voitot>(siirtojenVertailija);
         
         jarjestettyVarastoVoitot.putAll(varasto.getLista());
@@ -50,7 +79,5 @@ public class Tilastojentekija {
         
         return luettelo;
     }
-    
-    
 
 }

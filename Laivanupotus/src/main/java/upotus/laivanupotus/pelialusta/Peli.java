@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package KayttoliittymaPackage;
+package upotus.laivanupotus.pelialusta;
 
 import java.util.List;
 import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
@@ -51,6 +51,13 @@ public class Peli {
         this.loppuiko = false;
     }
 
+    /**
+     * getRuudukko
+     * 
+     * @return Jos asetellaan laivoja, palauttaa pelaajalle pelaajan oman ruudukon,
+     * jos pelitilanne, palauttaa käyttäjälle vastustajan ruudukon.
+     */
+    
     public Ruudukko getRuudukko() {
         if (laitetaankoLaivoja == true) {
             if (pelaajan1vuoro == true) {
@@ -81,6 +88,21 @@ public class Peli {
     public boolean getLoppuiko() {
         return loppuiko;
     }
+    
+    public void resetPeli() {
+        this.varasto = new Laivavarasto();
+        this.laivat = varasto.getLaivat();
+        this.ruudukko1 = new Ruudukko();
+        this.ruudukko2 = new Ruudukko();
+        this.ruudut1 = ruudukko1.getRuudut();
+        this.ruudut2 = ruudukko2.getRuudut();
+        this.lopettaja = new Lopettaja(nimivarasto);
+        this.loppuiko = false;
+        kierroslaskuri = 0;
+        laivojalaitettu = 0;
+        laitetaankoLaivoja = true;
+        pelaajan1vuoro = true;
+    }
 
     /**
      * LaitetaankoLaivoja
@@ -105,13 +127,14 @@ public class Peli {
      *
      * Metodi vastaa Kuuntelijan kutsuun ja toteuttaa napin painallukseen
      * reaktiona tapahtuman, joka luokan kirjanpidon perusteella on
-     * ajankohtainen
+     * ajankohtainen, eli laivojenlaittamisen tai pelaamisen
      *
      * @param x parametrit ruudukon parametreja
      * @param y
      * @param vaaka
      * @return palauttaa sanalliset ohjeet ja palautteen pelaajalle
      */
+    
     public String TapahtumaRuudussa(int x, int y, boolean vaaka) {
         // Laitetaan laivat
         if (laitetaankoLaivoja == true) {

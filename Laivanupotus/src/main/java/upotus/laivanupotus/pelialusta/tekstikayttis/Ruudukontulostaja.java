@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package upotus.laivanupotus.pelialusta;
+package upotus.laivanupotus.pelialusta.tekstikayttis;
 
 import upotus.laivanupotus.peliruudukko.Ruudukko;
 import upotus.laivanupotus.peliruudukko.Ruutu;
 
 /**
- *
+ * Ruudukontulostaja
+ * 
+ * Tekstikäyttöliittymän luokka, joka tuottaa tulostettavan ruudukon.
  * @author Tanja
  */
 public class Ruudukontulostaja {
@@ -20,6 +22,14 @@ public class Ruudukontulostaja {
         this.ruudukko = ruudukko;
         this.ruudut = ruudukko.getRuudut();
     }
+    
+    /**
+     * TulostaRuudukko
+     * 
+     * Metodi luo ja palauttaa String-esityksen ruudukon meneillään olevasta tilanteesta
+     * @param hyokkaaja
+     * @return String-esitys ruudukosta
+     */
     
     public String TulostaRuudukko(Boolean hyokkaaja) {
         String palautettavaRuudukko = "";

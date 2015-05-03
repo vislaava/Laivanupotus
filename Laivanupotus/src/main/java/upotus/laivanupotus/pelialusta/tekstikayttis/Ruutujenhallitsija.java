@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package upotus.laivanupotus.pelialusta;
-import upotus.laivanupotus.pelialusta.Peliruutu;
+package upotus.laivanupotus.pelialusta.tekstikayttis;
+import upotus.laivanupotus.pelialusta.Laivavarasto;
 import upotus.laivanupotus.pelialusta.Laivavarasto;
 import upotus.laivanupotus.peliruudukko.Ruudukko;
 /**
- *
+ * Ruutujenhallitsija
+ * 
+ * Toteuttaa melko paljon samankaltaisia tehtäviä kuin Peli-luokka.
+ * Luo pelaajille omat ruudukot ja asettaa käyntiin laivojenlaittamisen ja pelaamisen.
  * @author Tanja
  */
 public class Ruutujenhallitsija {
@@ -39,12 +42,24 @@ public class Ruutujenhallitsija {
         return pelaaja2;
     }
     
+    /**
+     * SijoitetaanLaivat
+     * 
+     * Metodi käskee pelaajia sijoittamaan laivansa ja kutsuu laivoja, jotta ne voidaan sijoittaa.
+     */
+    
     public void SijoitetaanLaivat() {
         System.out.println("Pelaaja 1, sijoita laivasi.");
         laivat1.SijoitaLaivat();
         System.out.println("Pelaaja 2, sijoita laivasi.");
         laivat2.SijoitaLaivat();
     }
+    
+    /**
+     * PelataanKierros
+     * 
+     * Metodi toteuttaa yhden pelikierroksen, jossa kumpikin pelaaja osallistuu kerran.
+     */
     
     public void PelataanKierros() {
         pelaaja1.Kierros(pelaaja2);

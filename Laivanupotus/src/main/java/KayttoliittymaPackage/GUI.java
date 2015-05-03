@@ -5,6 +5,7 @@
  */
 package KayttoliittymaPackage;
 
+import upotus.laivanupotus.pelialusta.Peli;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -20,7 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.event.AncestorListener;
 import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
-import upotus.laivanupotus.pelialusta.Peliruutu;
+import upotus.laivanupotus.pelialusta.tekstikayttis.Peliruutu;
 import upotus.laivanupotus.peliruudukko.Ruutu;
 
 /**
@@ -34,7 +35,7 @@ public class GUI implements Runnable {
     private JTextField kirjoituskentta1;
     private JTextField kirjoituskentta2;
     private JButton aloitusnappi;
-    private Aloitusruutu aloitusruutu;
+    private AloitusruutuKuuntelija aloitusruutu;
     private Nimivarasto nimivarasto;
 
     private JFrame frame2;
@@ -53,6 +54,11 @@ public class GUI implements Runnable {
     private Nappienkirjoittaja kirjuri;
     private Nappienkirjoittaja kirjuri2;
     private Peli peli;
+    private Tilastokuuntelija tilastokuuntelija;
+    private UusiPeliKuuntelija uusikuuntelija;
+    
+    private JFrame frame3;
+    private JLabel tilastoLabel;
 
     public GUI() {
         ruudukkoonAsettelija = new GridLayout(10, 10);
@@ -62,6 +68,12 @@ public class GUI implements Runnable {
         this.peli = new Peli(nimivarasto);
     }
 
+    /**
+     * run
+     * 
+     * Metodi luo kaikki ikkunat ja niiden komponentit
+     */
+    
     @Override
     public void run() {
         
@@ -93,8 +105,17 @@ public class GUI implements Runnable {
         frame2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame2.setLayout(new BorderLayout());
         
+        //Tilastoframen luonti
+        frame3 = new JFrame("Tilastot");
+        frame3.setPreferredSize(new Dimension(500, 400));
+        frame3.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        tilastoLabel = new JLabel();
+        tilastoLabel.setPreferredSize(new Dimension(450, 350));
+        frame3.add(tilastoLabel);
+        frame3.pack();
+        
         //Aloitusframen komponentit
-        aloitusruutu = new Aloitusruutu(kirjoituskentta1, kirjoituskentta2, nimivarasto, peli, frame1, frame2);
+        aloitusruutu = new AloitusruutuKuuntelija(kirjoituskentta1, kirjoituskentta2, nimivarasto, peli, frame1, frame2);
         aloitusnappi.addActionListener(aloitusruutu);
         aloitusTeksti.setText("Kirjoita riveille pelaajien nimet.");
         aloitusnappi.setText("Aloita peli");
@@ -112,6 +133,8 @@ public class GUI implements Runnable {
         tekstiLabel.setPreferredSize(new Dimension(300, 200));
         tekstiPaneeli.setLayout(new BorderLayout());
         ohjeLabel = new JLabel();
+        
+        //Peliframen nappipaneeli
         nappiPaneeli = new JPanel();
         nappiPaneeli.setLayout(new BoxLayout(nappiPaneeli, BoxLayout.X_AXIS));
         vuoronappi = new JButton();
@@ -124,6 +147,11 @@ public class GUI implements Runnable {
         voitotTilastoNappi.setText("Voittotilasto");
         vuorotTilastoNappi.setText("Vuorotilasto");
         uusiPeliNappi.setText("Uusi peli");
+        tilastokuuntelija = new Tilastokuuntelija(voitotTilastoNappi, vuorotTilastoNappi, tilastoLabel, nimivarasto, frame3);
+        voitotTilastoNappi.addActionListener(tilastokuuntelija);
+        vuorotTilastoNappi.addActionListener(tilastokuuntelija);
+        uusikuuntelija = new UusiPeliKuuntelija(uusiPeliNappi, peli, frame1, frame2);
+        uusiPeliNappi.addActionListener(uusikuuntelija);
         
         //Nappipaneelin nappien lisäys
         nappiPaneeli.add(vuoronappi);
@@ -143,6 +171,16 @@ public class GUI implements Runnable {
 
         frame2.pack();
     }
+    
+    /**
+     * luoRuudukko
+     * 
+     * Luo JPaneliin 100:n ruudun ruudukon ja asettaa nappeihin kuuntelijan. 
+     * Kuuntelijaan lisätään parametrina Peli-olio, nappienkirjoitus-olio ja 
+     * JLabel-olio, joka antaa palautetta tehdyistä siirroista.
+     * 
+     * @param paneeli, johon asetetaan napit 
+     */
 
     private void luoRuudukko(Container container) {
         container.setLayout(ruudukkoonAsettelija);
@@ -161,5 +199,4 @@ public class GUI implements Runnable {
             nappi.addActionListener(korva);
         }
     }
-
 }

@@ -261,6 +261,16 @@ public class Ruudukko {
         }
         return true;
     }
+    
+    /**
+     * onkoAlla
+     * 
+     * Testien apumetodi tarkistaa onko ruudussa laiva
+     * 
+     * @param x
+     * @param y
+     * @return palauttaa ruudun boolean-palautuksen
+     */
 
     public boolean onkoAlla(int x, int y) {
         return ruudut[x][y].onkoLaivaa();

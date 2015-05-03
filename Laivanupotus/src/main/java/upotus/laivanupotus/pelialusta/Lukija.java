@@ -8,28 +8,67 @@ package upotus.laivanupotus.pelialusta;
 import java.util.Scanner;
 
 /**
+ * Lukija
+ *
+ * Luokka hoitaa scanner-oliota ja kysyy pelaajalta sijaintitietoja ja suuntaa
  *
  * @author Tanja
  */
 public class Lukija {
+
     private Scanner lukija = new Scanner(System.in);
-    
+
     public Lukija() {
-        
+
     }
-    
+
+    /**
+     * KysyX
+     *
+     * Metodi pyytää x-janan kohdan
+     *
+     * @return palauttaa int:in joka kertoo missä kohtaa x-janalla ollaan
+     */
     public int KysyX() {
         System.out.println("Anna koordinaatti x");
-        int x = Integer.parseInt(lukija.nextLine());
+        int x;
+        while(true) {
+            x = Integer.parseInt(lukija.nextLine());
+            if (x < 10 || x >= 0) {
+                break;
+            } else {
+                System.out.println("Luvun pitää olla 0-9");
+            }
+        }
         return x;
     }
-    
+
+    /**
+     * KysyY Metodi kysyy y-janan kohdan
+     *
+     * @return palauttaa y-intin
+     */
     public int KysyY() {
         System.out.println("Anna koordinaatti y");
-        int y = Integer.parseInt(lukija.nextLine());
+        int y;
+        while (true) {
+            y = Integer.parseInt(lukija.nextLine());
+            if (y < 10 || y >= 0) {
+                break;
+            } else {
+                System.out.println("Luvun pitää olla 0-9");
+            }
+        }
         return y;
     }
-    
+
+    /**
+     * KysyVaaka
+     *
+     * Metodi kysyy laivan suunnan
+     *
+     * @return
+     */
     public boolean KysyVaaka() {
         while (true) {
             System.out.println("Anna suunta. Vaaka = v; pysty = p");

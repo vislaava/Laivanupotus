@@ -5,6 +5,7 @@
  */
 package KayttoliittymaPackage;
 
+import upotus.laivanupotus.pelialusta.Peli;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -14,10 +15,14 @@ import javax.swing.JTextField;
 import upotus.laivanupotus.pelaajatiedot.Nimivarasto;
 
 /**
- *
+ * AloitusruutuKuuntelija
+ * 
+ * ActionListenerin implementoiva luokka, joka kuuntelee aloitusikkunan Aloita peli-nappi,
+ * tallentaa pelaajien nimet, asettaa peli-ikkunan näkyviin ja aloitusikkunan pois näkyvistä.
+ * 
  * @author Tanja
  */
-public class Aloitusruutu implements ActionListener{
+public class AloitusruutuKuuntelija implements ActionListener{
     private JFrame frame1;
     private JFrame frame2;
     private JTextField kirjoituskentta1;
@@ -25,7 +30,7 @@ public class Aloitusruutu implements ActionListener{
     private Nimivarasto nimivarasto;
     private Peli peli;
 
-    Aloitusruutu(JTextField kirjoituskentta1, JTextField kirjoituskentta2, Nimivarasto nimivarasto, Peli peli, JFrame frame1 ,JFrame frame2) {
+    AloitusruutuKuuntelija(JTextField kirjoituskentta1, JTextField kirjoituskentta2, Nimivarasto nimivarasto, Peli peli, JFrame frame1 ,JFrame frame2) {
         this.kirjoituskentta1 = kirjoituskentta1;
         this.kirjoituskentta2 = kirjoituskentta2;
         this.nimivarasto = nimivarasto;
@@ -33,6 +38,14 @@ public class Aloitusruutu implements ActionListener{
         this.frame2 = frame2;
         this.frame1 = frame1;
     }
+    
+    /**
+     * actionPerformed
+     * 
+     * Metodi hankkii aloitusruudusta pelaajien nimet ja lähettää ne Peli-luokalle
+     * Tämän jälkeen asettaa peli-ikkunan näkyville ja aloitusikkunan näkymättömäksi.
+     * @param ae 
+     */
 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -40,8 +53,6 @@ public class Aloitusruutu implements ActionListener{
         String pelaaja2 = kirjoituskentta2.getText();
         peli.setPelaaja1Nimi(pelaaja1);
         peli.setPelaaja2Nimi(pelaaja2);
-        nimivarasto.LuoKayttaja(pelaaja1);
-        nimivarasto.LuoKayttaja(pelaaja2);
         
         frame2.setVisible(true);
         frame1.setVisible(false);

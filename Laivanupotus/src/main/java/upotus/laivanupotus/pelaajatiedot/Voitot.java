@@ -5,11 +5,15 @@
  */
 package upotus.laivanupotus.pelaajatiedot;
 
+import java.io.Serializable;
+
 /**
- *
+ * Voitot
+ * 
+ * Luokka hallinnoi pelaajan voittoja ja siirtoja
  * @author Tanja
  */
-public class Voitot {
+public class Voitot implements Serializable {
     private int voittoja;
     private int siirtoja;
     
@@ -21,6 +25,13 @@ public class Voitot {
     public void LisaaVoitto() {
         voittoja++;
     }
+    
+    /**
+     * PaivitaSiirrot
+     * 
+     * Metodi lisää pelaajan siirrot-tiliin uudet siirrot
+     * @param uusiaSiirtoja viimeisimmän voitetun pelin siirrot
+     */
     
     public void PaivitaSiirrot(int uusiaSiirtoja) {
         siirtoja = siirtoja + uusiaSiirtoja;
@@ -40,6 +51,6 @@ public class Voitot {
     }
     
     public String toString() {
-        return Integer.toString(voittoja) + " " + Integer.toString(siirtoja);
+        return "Voittoja: " + Integer.toString(voittoja) + "\n Siirtoja: " + Integer.toString(siirtoja);
     }
 }

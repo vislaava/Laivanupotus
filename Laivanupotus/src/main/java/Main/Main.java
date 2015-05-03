@@ -7,9 +7,9 @@ package Main;
 
 import KayttoliittymaPackage.GUI;
 import javax.swing.SwingUtilities;
-import upotus.laivanupotus.pelialusta.Peliruutu;
+import upotus.laivanupotus.pelialusta.tekstikayttis.Peliruutu;
 import upotus.laivanupotus.pelialusta.Laivavarasto;
-import upotus.laivanupotus.pelialusta.Ruutujenhallitsija;
+import upotus.laivanupotus.pelialusta.tekstikayttis.Ruutujenhallitsija;
 
 /**
  *

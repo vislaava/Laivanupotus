@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import upotus.laivanupotus.pelialusta.Ruudukontulostaja;
+import upotus.laivanupotus.pelialusta.tekstikayttis.Ruudukontulostaja;
 import upotus.laivanupotus.peliruudukko.Ruudukko;
 
 /**
